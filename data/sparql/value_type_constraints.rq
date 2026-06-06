@@ -1,0 +1,17 @@
+SELECT DISTINCT
+  ?property
+  ?propertyLabel
+  ?class
+  ?classLabel
+WHERE {
+  ?property p:P2302 ?constraintStatement .
+  ?constraintStatement ps:P2302 wd:Q21510865 .   # subject type constraint
+  ?constraintStatement pq:P2308 ?class .
+  
+  ?property rdfs:label ?propertyLabel .
+  FILTER(LANG(?propertyLabel) = "en")
+
+  ?class rdfs:label ?classLabel .
+  FILTER(LANG(?classLabel) = "en")
+}
+ORDER BY ?property

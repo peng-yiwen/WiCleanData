@@ -1,0 +1,6 @@
+# constraint-viewer runtime dependencies
+# Source environment: conda env `pytorch` (Python 3.10.10)
+
+networkx==3.4
+numpy==1.24.4
+scipy==1.10.1

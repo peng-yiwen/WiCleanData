@@ -1,0 +1,3 @@
+Your task is to determine whether a given hierarchical relationship holds between two concepts. We define 'class A is a subclass of class B' if every instance of A is also an instance of B. Here are the descriptions of two concepts: {child_label} ({child_desc}); {parent_label} ({parent_desc}). 
+Question: Is '{child_label}' a subclass of '{parent_label}'?
+Please format your answer directly as follows: **Answer: True/False**.

@@ -1,0 +1,16 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+SELECT DISTINCT ?class WHERE {
+  ?class wdt:P279 ?superclass .
+  ?instance wdt:P31 ?class .
+  ?class rdfs:label ?name .
+  ?class schema:description ?description .
+  FILTER (LANG(?description) = "en")
+  FILTER (LANG(?name) = "en") .
+  ?instance rdfs:label ?name_ .
+  ?instance schema:description ?description_ .
+  FILTER (LANG(?description_) = "en")
+  FILTER (LANG(?name_) = "en")
+}

@@ -1,0 +1,44 @@
+{
+  "constraints": [
+    {
+      "relation": "wdt:P19",
+      "subject_types": [
+        "wd:Q5 Human",
+        "wd:Q15632617 fictional human"
+      ],
+      "object_types": [
+        "wd:Q515 city",
+        "wd:Q6256 country",
+        "wd:Q618123 settlement"
+      ]
+    },
+    {
+      "relation": "wdt:P26",
+      "subject_types": [
+        "wd:Q5 Human"
+      ],
+      "object_types": [
+        "wd:Q5 Human"
+      ]
+    },
+    {
+      "relation": "yago:siteLinks",
+      "subject_types": [
+        "schema:Thing"
+      ],
+      "object_types": [
+        "xsd:int"
+      ]
+    },
+    {
+      "relation": "https://schema.org/creator",
+      "subject_types": [
+        "wd:Q571 book"
+      ],
+      "object_types": [
+        "wd:Q5 Human",
+        "wd:Q43229 organization"
+      ]
+    }
+  ]
+}

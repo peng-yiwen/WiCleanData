@@ -1,0 +1,409 @@
+/* Aligned with /website/taxonomy_viewer/style.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  min-height: 100vh;
+}
+
+a {
+  color: #1565c0;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0d47a1;
+  text-decoration: underline;
+}
+
+header {
+  background: linear-gradient(135deg, #1565c0, #0d47a1);
+  color: #fff;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+/* ── Main tab strip (Material-style) ─────────────────────────────────── */
+
+.main-tabs-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.tab-bar {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 0.5rem;
+  background: #fff;
+}
+
+.tab-btn {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.9rem 1.35rem;
+  margin: 0;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  background: transparent;
+  color: #757575;
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.tab-btn:hover {
+  color: #424242;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.tab-btn.is-active {
+  color: #1565c0;
+  font-weight: 600;
+  border-bottom-color: #1565c0;
+}
+
+.tab-btn:focus-visible {
+  outline: 2px solid #1565c0;
+  outline-offset: 2px;
+}
+
+.tab-panel {
+  padding: 0;
+}
+
+.tab-panel.hidden {
+  display: none !important;
+}
+
+.tab-inner-panel {
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #eee;
+}
+
+.tab-constraints-card {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.tab-constraints-card .card-content {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Input panel (same pattern as taxonomy_viewer) */
+.input-panel {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-panel .panel-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.file-upload-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.file-upload-row label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #555;
+  white-space: nowrap;
+}
+
+.file-upload-row input[type="file"] {
+  font-size: 0.9rem;
+}
+
+.sample-hint {
+  margin-top: 0.6rem;
+  font-size: 0.82rem;
+  color: #999;
+}
+
+.sample-hint code {
+  font-size: 0.85em;
+  background: #f5f5f5;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+.sample-status {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+  border-radius: 4px;
+  padding: 0;
+}
+
+.sample-status.error {
+  color: #c62828;
+  background: #ffebee;
+  padding: 0.5rem 0.75rem;
+}
+
+.sample-status.success {
+  color: #2e7d32;
+  background: #e8f5e9;
+  padding: 0.5rem 0.75rem;
+}
+
+/* Main card (same as #taxonomy-card) */
+#constraints-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+#constraints-card .card-content {
+  padding: 1.25rem 1.5rem;
+}
+
+#constraints-card .card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.viewer-intro {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.viewer-intro strong {
+  font-weight: 600;
+}
+
+.constraints-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 0.25rem;
+}
+
+.placeholder {
+  margin: 0;
+  color: #999;
+  font-size: 1rem;
+}
+
+/* Table: lines and typography consistent with taxonomy (subtle grays, Open Sans) */
+.constraints-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 960px;
+  table-layout: fixed;
+}
+
+.constraints-table th,
+.constraints-table td {
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0.85rem 1rem;
+}
+
+.constraints-table thead tr {
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.constraints-table th {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.constraints-table td {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.cell-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.cell-item {
+  margin: 0.25rem 0;
+  white-space: nowrap;
+}
+
+.label-text {
+  color: #555;
+  font-weight: 400;
+}
+
+.header-relation {
+  color: #1565c0 !important;
+  font-weight: 700 !important;
+}
+
+.relation-link {
+  font-weight: 600;
+  color: #1565c0;
+  white-space: nowrap;
+}
+
+.relation-link:hover {
+  color: #0d47a1;
+}
+
+.relation-text {
+  font-weight: 600;
+  color: #555;
+  white-space: nowrap;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+
+.form-row label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.form-row select,
+.form-row input[type="text"] {
+  font-size: 0.9rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 12rem;
+}
+
+.form-row input[type="text"] {
+  width: 8rem;
+  min-width: 6rem;
+}
+
+.btn-primary {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.45rem 1.1rem;
+  border: none;
+  border-radius: 6px;
+  background: #1565c0;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #0d47a1;
+}
+
+.api-status-line {
+  margin-top: 0.75rem;
+}
+
+.input-panel-secondary {
+  margin-top: 1rem;
+}
+
+.api-results {
+  margin: 0;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.results-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.results-card .card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #333;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.export-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.btn-export {
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.35rem 0.9rem;
+  border: 1.5px solid #1565c0;
+  border-radius: 5px;
+  background: #fff;
+  color: #1565c0;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-export:hover {
+  background: #1565c0;
+  color: #fff;
+}
+
+.summary-pre {
+  margin: 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 70vh;
+  overflow: auto;
+  color: #222;
+}

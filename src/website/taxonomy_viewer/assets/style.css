@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
+    color: #fff;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Input panel */
+.input-panel {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-panel .panel-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.input-tabs {
+    display: flex;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 1.25rem;
+}
+
+.input-tab {
+    padding: 0.6rem 1.25rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #888;
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.input-tab:hover {
+    color: #555;
+}
+
+.input-tab.active {
+    color: #1565c0;
+    border-bottom-color: #1565c0;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Sample selector */
+.sample-selector {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.sample-selector .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.sample-selector .field label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.sample-selector select,
+.sample-selector input[type="text"] {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.45rem 0.75rem;
+    border: 1.5px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s;
+    min-width: 160px;
+}
+
+.sample-selector select:focus,
+.sample-selector input[type="text"]:focus {
+    border-color: #1565c0;
+}
+
+.sample-selector .btn {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    background: #1565c0;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.sample-selector .btn:hover {
+    background: #0d47a1;
+}
+
+.sample-selector .btn:disabled {
+    background: #b0bec5;
+    cursor: not-allowed;
+}
+
+.sample-hint {
+    margin-top: 0.6rem;
+    font-size: 0.82rem;
+    color: #999;
+}
+
+.sample-status {
+    margin-top: 0.6rem;
+    font-size: 0.88rem;
+    border-radius: 4px;
+    padding: 0;
+}
+
+.sample-status.error {
+    color: #c62828;
+    background: #ffebee;
+    padding: 0.5rem 0.75rem;
+}
+
+.sample-status.success {
+    color: #2e7d32;
+    background: #e8f5e9;
+    padding: 0.5rem 0.75rem;
+}
+
+.sample-status.loading {
+    color: #1565c0;
+    background: #e3f2fd;
+    padding: 0.5rem 0.75rem;
+}
+
+.sample-status.loading::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #90caf9;
+    border-top-color: #1565c0;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* File upload section */
+.file-upload-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.file-upload-row label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #555;
+    white-space: nowrap;
+}
+
+.file-upload-row input[type="file"] {
+    font-size: 0.9rem;
+}
+
+.file-upload-row .hint {
+    font-size: 0.82rem;
+    color: #999;
+    width: 100%;
+}
+
+/* Legend */
+.legend {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.legend-swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* Taxonomy card */
+#taxonomy-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#taxonomy-card .card-content {
+    padding: 1.25rem 1.5rem;
+}
+
+#taxonomy-card .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#taxonomy-dag {
+    overflow: auto;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#taxonomy-card .card-content.collapsed #taxonomy-dag {
+    display: none;
+}
+
+#taxonomy-card .collapse-toggle {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #9e9e9e;
+    transition: transform 0.2s, color 0.2s, background-color 0.2s;
+    user-select: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    flex-shrink: 0;
+    border: none;
+    background: none;
+}
+
+#taxonomy-card .collapse-toggle:hover {
+    color: #616161;
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+#taxonomy-card .collapse-toggle.collapsed {
+    transform: rotate(-90deg);
+}
+
+#taxonomy-dag svg {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#taxonomy-dag .dag-node text {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#taxonomy-dag .dag-node a:hover rect {
+    stroke-width: 2.5;
+    filter: brightness(0.95);
+}
+
+#taxonomy-dag .dag-edge path {
+    fill: none;
+    stroke: #9e9e9e;
+    stroke-width: 1.2;
+    opacity: 0.5;
+}
+
+/* Empty state */
+#empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #999;
+}
+
+#empty-state .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+#empty-state p {
+    font-size: 1rem;
+}

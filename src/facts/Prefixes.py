@@ -1,0 +1,196 @@
+"""
+RDF namespace prefixes for YAGO
+
+CC-BY 2022 Fabian M. Suchanek
+"""
+
+##########################################################################
+#             Prefixes
+##########################################################################
+
+# We need these prefixes just to print them into each file. We don't actually use them...
+
+prefixes = {
+"yago": "http://yago-knowledge.org/resource/",
+"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+"xsd": "http://www.w3.org/2001/XMLSchema#",
+"ontolex": "http://www.w3.org/ns/lemon/ontolex#",
+"dct": "http://purl.org/dc/terms/",
+"rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+"owl": "http://www.w3.org/2002/07/owl#",
+"wikibase": "http://wikiba.se/ontology#",
+"skos": "http://www.w3.org/2004/02/skos/core#",
+"schema": "http://schema.org/",
+"cc": "http://creativecommons.org/ns#",
+"geo": "http://www.opengis.net/ont/geosparql#",
+"prov": "http://www.w3.org/ns/prov#",
+"wd": "http://www.wikidata.org/entity/",
+"data": "https://www.wikidata.org/wiki/Special:EntityData/",
+"sh": "http://www.w3.org/ns/shacl#",
+"s": "http://www.wikidata.org/entity/statement/",
+"ref": "http://www.wikidata.org/reference/",
+"v": "http://www.wikidata.org/value/",
+"wdt": "http://www.wikidata.org/prop/direct/",
+"wpq": "http://www.wikidata.org/prop/quant/",
+"wdtn": "http://www.wikidata.org/prop/direct-normalized/",
+"p": "http://www.wikidata.org/prop/",
+"ps": "http://www.wikidata.org/prop/statement/",
+"psv": "http://www.wikidata.org/prop/statement/value/",
+"psn": "http://www.wikidata.org/prop/statement/value-normalized/",
+"pq": "http://www.wikidata.org/prop/qualifier/",
+"pqv": "http://www.wikidata.org/prop/qualifier/value/",
+"pqn": "http://www.wikidata.org/prop/qualifier/value-normalized/",
+"pr": "http://www.wikidata.org/prop/reference/",
+"prv": "http://www.wikidata.org/prop/reference/value/",
+"prn": "http://www.wikidata.org/prop/reference/value-normalized/",
+"wdno": "http://www.wikidata.org/prop/novalue/",
+"ys": "http://yago-knowledge.org/schema#" 
+}
+
+yagoPrefixes=["geo", "owl", "rdf", "rdfs", "schema", "sh", "skos", "wd", "wdt", "wpq", "xsd", "yago", "ys"]
+
+##########################################################################
+#             Wikidata and schema.org URIs
+##########################################################################
+
+xsdAnyURI='xsd:anyURI'
+
+xsdAnytype='xsd:anyType'
+
+xsdDateTime='xsd:dateTime'
+
+xsdDecimal='xsd:decimal'
+
+xsdInteger='xsd:integer'
+
+xsdDate='xsd:date'
+
+xsdString='xsd:string'
+
+rdfLangString='rdf:langString'
+
+rdfFirst="rdf:first"
+
+rdfRest="rdf:rest"
+
+rdfNil="rdf:nil"
+
+rdfType='rdf:type'
+
+rdfProperty='rdf:Property'
+
+rdfsLabel='rdfs:label'
+
+rdfsComment='rdfs:comment'
+
+rdfsClass='rdfs:Class'
+
+rdfsSubClassOf = "rdfs:subClassOf"
+
+rdfsSubclassOf = "rdfs:subClassOf"
+
+ysReason = "ys:excludedFor"
+
+wicReason = "wic:excludedFor"
+
+wikidataType = "wdt:P31"
+
+wikidataSubClassOf = "wdt:P279"
+
+wikidataParentTaxon = "wdt:P171"
+
+schemaParentTaxon = "schema:parentTaxon"
+
+wikidataAnalogousClass = "wdt:P1074"
+
+wikidataDuring = "pq:P585"
+
+wikidataStart = "pq:P580"
+
+wikidataEnd = "pq:P582"
+
+wikidataOccupation = "wdt:P106"
+
+wikidataPosition="wdt:P39"
+
+wikidataGenre="wdt:P136"
+
+yagoAward = "yago:Award"
+
+owlDisjointWith = "owl:disjointWith"
+
+geoPoint = "geo:wktLiteral"
+
+schemaTaxon = "schema:Taxon"
+
+schemaName = "schema:name"
+
+schemaDescription = "schema:description"
+
+schemaStartDate = "schema:startDate"
+
+schemaAbout = "schema:about"
+
+schemaUrl = "schema:url"
+
+schemaThing = "schema:Thing"
+
+schemaAlumniOf = "schema:alumniOf"
+
+schemaDateCreated = "schema:dateCreated"
+
+fromClass = "ys:fromClass"
+
+fromProperty = "ys:fromProperty"
+
+shaclPath="sh:path"
+
+shaclClass="sh:class" # Fabian: Changed from sh:node to sh:class on 2024-04-03
+
+shaclMaxCount="sh:maxCount"
+
+shaclMinCount="sh:minCount"
+
+shaclMaxInclusive="sh:maxInclusive"
+
+shaclMinInclusive="sh:minInclusive"
+
+shaclUniqueLang="sh:uniqueLang"
+
+shaclDisjoint="sh:disjoint"
+
+shaclDatatype="sh:datatype"
+
+shaclOr="sh:or"
+
+shaclNodeKind="sh:nodeKind"
+
+shaclPattern="sh:pattern"
+
+shaclProperty="sh:property"
+
+shaclNodeShape="sh:NodeShape"
+
+yagoUnitOfMeasurement="yago:UnitOfMeasurement"
+
+yagoUnit="yago:UnitOf"
+
+yagoCurrency="yago:currency"
+
+yagoPersonName="yago:PersonName"
+
+wikibaseQuantityUnit="wikibase:quantityUnit"
+
+skosPrefLabel="skos:prefLabel"
+
+skosAltLabel="skos:altLabel"
+
+##########################################################################
+#             Constants for fact processing
+##########################################################################
+
+# Special flag to have Wikidata entities in strings replaced
+REPLACE_QID_FLAG = 'YAGO-REPLACE '
+
+# Special prefix for YGAO ids that are names
+namePrefix = "YAGO_NAME_"

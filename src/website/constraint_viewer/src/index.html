@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constraint Viewer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<header>
+  <h1>Constraint Viewer</h1>
+</header>
+
+<div class="container">
+  <div class="main-tabs-card">
+    <div class="tab-bar" role="tablist" aria-label="View mode">
+      <button type="button" class="tab-btn is-active" id="tab-summary" role="tab" aria-selected="true" aria-controls="panel-summary" tabindex="0">
+        Constraint summary
+      </button>
+      <button type="button" class="tab-btn" id="tab-upload" role="tab" aria-selected="false" aria-controls="panel-upload" tabindex="-1">
+        Upload JSON
+      </button>
+    </div>
+
+    <div id="panel-summary" class="tab-panel" role="tabpanel" aria-labelledby="tab-summary">
+      <div class="input-panel tab-inner-panel">
+        <p class="panel-title">Taxonomy model + property</p>
+        <div class="form-row">
+          <label for="model-select">Model</label>
+          <select id="model-select" aria-label="Taxonomy model">
+            <option value="">Loading…</option>
+          </select>
+          <label for="relation-input">Property</label>
+          <input id="relation-input" type="text" placeholder="P800" autocomplete="off" spellcheck="false" aria-label="Wikidata property id">
+          <button type="button" id="run-summary" class="btn-primary">Run summary</button>
+        </div>
+        <p id="api-status" class="sample-status api-status-line" role="status"></p>
+      </div>
+
+      <div id="api-results" class="api-results hidden">
+        <div class="results-card">
+          <span class="card-title">Summary</span>
+          <pre id="summary-pre" class="summary-pre"></pre>
+        </div>
+        <div class="results-card">
+          <span class="card-title">Domain — Relation — Range</span>
+          <div class="export-bar" id="export-bar">
+            <button type="button" class="btn-export" id="export-svg" title="Export as SVG (vector)">Export SVG</button>
+            <button type="button" class="btn-export" id="export-pdf" title="Export as PDF (vector)">Export PDF</button>
+          </div>
+          <div id="final-constraints-container" class="constraints-container">
+            <p class="placeholder">Run a summary to see the final row.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="panel-upload" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-upload" hidden>
+      <div class="input-panel tab-inner-panel">
+        <p class="panel-title">Upload constraints JSON</p>
+        <div class="file-upload-row">
+          <label for="file-input">Select JSON file</label>
+          <input id="file-input" type="file" accept="application/json,.json">
+        </div>
+        <p class="sample-hint">Expected fields per item: <code>relation</code>, <code>subject_types</code>, <code>object_types</code>. Labels are filled from <code>wikclabels_2026.txt</code> when missing.</p>
+        <p id="status-message" class="sample-status">No file loaded.</p>
+      </div>
+
+      <div id="constraints-card" class="tab-constraints-card">
+        <div class="card-content">
+          <span class="card-title">Constraints</span>
+          <p class="viewer-intro">Columns: <strong>Domain</strong> — <strong>Relation</strong> — <strong>Range</strong>.</p>
+          <div id="constraints-container" class="constraints-container">
+            <p class="placeholder">Load a JSON file to visualize constraints.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>
