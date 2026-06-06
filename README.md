@@ -19,7 +19,7 @@ python cleanConstraints.py --taxonomy ../../data/wicleanTaxonomy.txt
 bash src/facts/run.sh
 ```
 
-Note: You may need to run `python llm_infer_rewire.py --llm $llms$` if the rewired links have not been checked during refinement.
+Note: You may need to run `python src/taxonomy/llm_infer_rewire.py --llm $llms$` if the rewired links have not been checked during taxonomy refinement.
 
 ## Evaluation
 
