@@ -19,6 +19,8 @@ python cleanConstraints.py --taxonomy ../../data/wicleanTaxonomy.txt
 bash src/facts/run.sh
 ```
 
+Note: You may need to run `python llm_infer_rewire.py --llm $llms$` if the rewired links have not been checked during refinement.
+
 ## Evaluation
 
 Intrinsic evaluation uses `src/analysis/` to measure taxonomy semantic coherence, structural distance, and robustness. Extrinsic evaluation uses [KGrEaT](https://github.com/dwslab/kgreat) to assess WiCleanData on downstream tasks such as classification and recommendation. See the KGrEaT repository for setup and usage details.
