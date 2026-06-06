@@ -10,7 +10,7 @@ pip install -r requirements.txt
 
 ## Refining Pipeline
 
-The automatic cleaning pipeline runs in three stages: taxonomy cleaning, constraints cleaning and finally facts cleaning. All data and intermediate outputs are stored in the [`data/`](data/) folder. 
+The automatic cleaning pipeline runs in three stages: taxonomy cleaning, constraints cleaning and finally facts cleaning. All data and intermediate outputs are stored in the [`data/`](data/) folder (see the local README for details). 
 To reproduce the results, run the following stages in order. Each stage consumes outputs from the previous one.
 
 ```bash
