@@ -1,6 +1,6 @@
 # WiCleanData
 
-The source code of mining **WiCleanData**, a refined version of Wikidata with a consistent taxonomy and free from type constraint violations. This project is licensed under the MIT license
+The source code of mining **WiCleanData**, a refined version of Wikidata with a consistent taxonomy and free from type constraint violations. This project is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
 ## Installation
 
