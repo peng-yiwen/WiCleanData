@@ -1,0 +1,14 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?class (COUNT(*) AS ?instanceCount)
+WHERE {
+  ?instance wdt:P31 ?class .
+  ?class rdfs:label ?name .
+  ?class schema:description ?description .
+  FILTER(LANG(?name) = "en")
+  FILTER(LANG(?description) = "en")
+}
+GROUP BY ?class
