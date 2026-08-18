@@ -2,21 +2,20 @@ import json
 import os
 import torch
 import argparse
-import json
-import utils
+import graph_utils as utils
+import config
 import re
 from transformers import GenerationConfig, AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from transformers import AutoProcessor, Gemma3ForConditionalGeneration
 from dotenv import load_dotenv
 from huggingface_hub import login
 from tqdm import tqdm
-import pandas as pd
 load_dotenv(override = True)
 access_token_read = os.getenv('access_token_read_hf')
 login(token = access_token_read)
 
 
-
+############################################################################
 llms = {
     "gemma4b": "google/gemma-3-4b-it",
     "gemma12b": "google/gemma-3-12b-it",
@@ -36,6 +35,7 @@ llms = {
 
 ############################################################################
 
+# Chat template (usually used by instruction-tuned models)
 def get_prompt_text(problem_text, args):
     sys_prompt = "You are an ontological expert in hierarchical concept analysis."
     if args.llm in ['llama8b', 'llama70b']:
@@ -61,8 +61,6 @@ def get_prompt_text(problem_text, args):
     return messages
 
 
-
-# Chat template (usually used by instruction-tuned models)
 def generate_answer_by_llm(batch_messages, tokenizer, model, args):
 
     input_ids = tokenizer.apply_chat_template(
@@ -70,14 +68,11 @@ def generate_answer_by_llm(batch_messages, tokenizer, model, args):
         tokenize=True,
         add_generation_prompt=True,
         return_tensors="pt",
-        enable_thinking=False,
+        enable_thinking=False, # disable thinking for qwen3 model
         padding=True,
     ).to(model.device)
 
     # settings by default
-    # When temperature is very low (<0.1), sampling with softmax can overflow
-    # in bfloat16, producing inf/nan probabilities and crashing CUDA.
-    # use_sampling = args.temp >= 0.1
     generation_kwargs = {
         "max_new_tokens": args.max_token,
         "do_sample": True,
@@ -88,16 +83,14 @@ def generate_answer_by_llm(batch_messages, tokenizer, model, args):
         "output_logits": True,
         "return_dict_in_generate": True,
     }
-    # if use_sampling:
-    #     generation_kwargs["temperature"] = args.temp
-    #     generation_kwargs["top_p"] = 0.9
     if hasattr(tokenizer, "eos_token_id") and tokenizer.eos_token_id is not None:
         generation_kwargs["pad_token_id"] = tokenizer.eos_token_id
     
-    # # special bugs for Mistral8x7B, avoid early stop for numbers
-    # if args.llm == 'mixtral8x7b':
-    #     generation_kwargs["eos_token_id"] = None
-    #     generation_kwargs["min_new_tokens"] = 100
+    # special bugs for Mistral8x7B, avoid early stop for numbers
+    if args.llm == 'mixtral8x7b':
+        generation_kwargs["eos_token_id"] = None
+        generation_kwargs["min_new_tokens"] = 100
+    
     gen_output = model.generate(
         input_ids,
         # **generation_kwargs,
@@ -126,6 +119,7 @@ def get_tokenizer_and_model(model_name):
     # bnb_config = BitsAndBytesConfig(
     #     load_in_8bit=True,
     # )
+    # Specific for gemma3 models
     if model_name in ['gemma4b', 'gemma12b', 'gemma27b']:
         torch._dynamo.disable() # avoid torch._dynamo.exc.RecompileLimitExceeded
         model = Gemma3ForConditionalGeneration.from_pretrained(
@@ -169,7 +163,6 @@ def extract_answer_token(text):
     else:
         return None, None
 
-##############################################################################
 
 def get_answer_and_prob(answer_with_think_ids, logits, answer, tokenizer):
     '''
@@ -237,11 +230,13 @@ def get_answer_and_prob(answer_with_think_ids, logits, answer, tokenizer):
 
 
 def get_valid_answer_with_prob(messages, model, tokenizer, args, max_retry=3):
+    '''
+    Get valid answer and its probability from the response.
+    '''
 
     all_whole_answer = []
     all_answer = []
     all_answer_conf = []
-
 
     all_ans_with_think_ids, all_gen_logits, all_answer_with_thinking = generate_answer_by_llm(messages, tokenizer, model, args)
     # check validity of the answer
@@ -257,6 +252,7 @@ def get_valid_answer_with_prob(messages, model, tokenizer, args, max_retry=3):
             all_answer.append('None')
             all_answer_conf.append(0.0)
             continue
+        # pre-process the answer
         res = answer_with_thinking[ans_pos:]
         sid, eid = extract_answer_token(res)
         ans_value = res[sid:eid].strip() if sid is not None and eid is not None else res
@@ -268,6 +264,16 @@ def get_valid_answer_with_prob(messages, model, tokenizer, args, max_retry=3):
             continue
         # get confidence score
         answer, answer_conf = get_answer_and_prob(all_ans_with_think_ids[i], all_gen_logits[i], res, tokenizer)
+        # turn answer to true/false if we have yes/no answer
+        if answer is not None:
+            if "yes" in answer.lower():
+                answer = "True"
+            elif "no" in answer.lower():
+                answer = "False"
+        else:
+            answer = 'None'
+        if answer_conf is None:
+            answer_conf = 0.0
         all_whole_answer.append(answer_with_thinking)
         all_answer.append(answer)
         all_answer_conf.append(answer_conf)
@@ -281,13 +287,9 @@ if __name__ == '__main__':
     parser.add_argument("--llm", type=str, default="mistral7b", help="LLM used for inference")
     parser.add_argument("--temp", type=float, default=0.01, help="Temperature of LLM")
     parser.add_argument("--max_token", type=int, default=50, help="Max output token of LLM")
-    parser.add_argument("--output_dir", type=str, default="../../results_new_extraction", help="Output directory")
     parser.add_argument("--prompt", type=str, default="SubClassEval.txt", help="Prompt template for Semantic Prediction")
-    # Optional
-    parser.add_argument("--start_id", type=int, default=0, help="Start id for inference")
-    parser.add_argument("--end_id", type=int, default=-1, help="End id for inference")
     parser.add_argument("--batch_size", type=int, default=16, help="Batch size for inference")
-    # parser.add_argument('--slice', type=int, default=-1, help='Slice of the taxonomy to use (0 for all)')
+
 
     args = parser.parse_args()
     print("Arguments:", args)
@@ -298,44 +300,47 @@ if __name__ == '__main__':
         print(f"Error loading model {args.llm}: {e}")
     
     # File Paths
-    df_labels = pd.read_csv('../../data/clean/wikidata_2026_class_labels_full.csv')
-    df_descriptions = pd.read_csv('../../data/clean/wikidata_2026_class_descriptions_full.csv')
-    cls2label = df_labels.set_index('item')['itemLabel'].to_dict()
-    cls2desc = df_descriptions.set_index('item')['itemDesc'].to_dict()
-    # add prefix
-    cls2label = {f'wd:{k}': v for k, v in cls2label.items()}
-    cls2desc = {f'wd:{k}': v for k, v in cls2desc.items()}
+    LABELS_FILE = config.TAXONOMY_LABELS_FILE
+    DESCRIPTIONS_FILE = config.TAXONOMY_DESCRIPTIONS_FILE
+    HIERARCHY_FILE = config.TAXONOMY_FILE
+    PROMPTS_FOLDER = config.PROMPTS_DIR
+    OUTPUT_FOLDER = config.LLM_OUTPUT_DIR
+    cls2label = utils.load_labels(LABELS_FILE)
+    cls2desc = utils.load_descriptions(DESCRIPTIONS_FILE)
 
-    # load extra edges
+
+    # load hierarchy edges
     hierrels = []
-    with open('../../data/clean/noisy_wikidata_2026_extracted.tsv', 'r') as f:
+    with open(HIERARCHY_FILE, 'r') as f:
         for line in f:
-            terms = line.strip().split('\t')
-            if len(terms) > 3:
-                child, parent = terms[0], terms[2]
+            terms = line.strip().split(',')
+            if len(terms) > 1:
+                child, parent = terms[0], terms[1]
                 if child not in cls2label or parent not in cls2label:
                     raise ValueError(f"Child or parent not found in literals: {child}, {parent}")
                 if child not in cls2desc or parent not in cls2desc:
                     raise ValueError(f"Child or parent not found in descriptions: {child}, {parent}")
                 hierrels.append((child, parent))
-    if os.path.exists(os.path.join('../../prompts', args.prompt)):
-        with open(os.path.join('../../prompts', args.prompt), 'r') as f:
+    
+    # load prompt template
+    if os.path.exists(os.path.join(PROMPTS_FOLDER, args.prompt)):
+        with open(os.path.join(PROMPTS_FOLDER, args.prompt), 'r') as f:
             prompt_tmp = f.read()
     
+    ########################################################
+    # Inference
+    ########################################################
     
     print("Start inference...")
-    if not os.path.exists(args.output_dir):
-        os.makedirs(args.output_dir)
+    if not os.path.exists(OUTPUT_FOLDER):
+        os.makedirs(OUTPUT_FOLDER)
 
-    # outputs = []
     batched_messages = []
     batched_messages_inverse = []
     batched_parents = []
     batched_children = []
-    with open(os.path.join(args.output_dir, f"{args.llm}_outputs_{args.start_id}_{args.end_id}.json"), 'a') as f:
-        end = args.end_id if args.end_id != -1 else None
-        for i, (child, parent) in enumerate(tqdm(hierrels[args.start_id:end])):
-            # print(f"Processing id: {i+args.start_id}, {parent} -> {child} ...")
+    with open(os.path.join(OUTPUT_FOLDER, f"{args.llm}_predictions.json"), 'a') as f:
+        for i, (child, parent) in enumerate(tqdm(hierrels)):
             problem_text = prompt_tmp.format(
                 parent_label=cls2label[parent], parent_desc=cls2desc[parent],
                 child_label=cls2label[child], child_desc=cls2desc[child])
@@ -345,15 +350,16 @@ if __name__ == '__main__':
             messages = get_prompt_text(problem_text, args)
             messages_inverse = get_prompt_text(problem_text_inverse, args)
 
+            # batching
             batched_messages.append(messages)
             batched_messages_inverse.append(messages_inverse)
             batched_parents.append(parent)
             batched_children.append(child)
-            if len(batched_messages) < args.batch_size and (i != len(hierrels[args.start_id:end]) - 1):
+            if len(batched_messages) < args.batch_size and (i != len(hierrels) - 1):
                 continue
 
             # LLM inference
-            print(f"Processing ids: {i+args.start_id - args.batch_size} to {i+args.start_id} ...")
+            print(f"Processing ids: {i+1-args.batch_size} to {i+1} ...")
             all_ans_with_thinking, all_answer, all_answer_conf = get_valid_answer_with_prob(batched_messages, model, tokenizer, args, max_retry=5)
             all_ans_with_thinking_inverse, all_answer_inverse, all_answer_conf_inverse = get_valid_answer_with_prob(batched_messages_inverse, model, tokenizer, args, max_retry=5)
             assert len(all_ans_with_thinking) == len(batched_messages)
@@ -381,5 +387,6 @@ if __name__ == '__main__':
             batched_parents = []
             batched_children = []
 
-    print("  Done! Results saved to", os.path.join(args.output_dir, f"{args.llm}_outputs_{args.start_id}_{args.end_id}.json"))
-
+    print("  Done! Results saved to", os.path.join(OUTPUT_FOLDER, f"{args.llm}_predictions.json"))
+    # transform the results to a single JSON file
+    utils.json_transform([os.path.join(OUTPUT_FOLDER, f"{args.llm}_predictions.json")], os.path.join(OUTPUT_FOLDER, f"{args.llm}_predictions.json"))

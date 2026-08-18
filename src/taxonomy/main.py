@@ -1,11 +1,11 @@
 from clean import TaxonCleaner
 from transformers import AutoTokenizer, AutoModel
 import torch
-from tqdm import tqdm
 import networkx as nx
 import graph_utils
+import config
 import pickle
-import sys
+import csv
 import os
 import numpy as np
 
@@ -22,14 +22,14 @@ def satisfy_constraints(graph, stage):
     print(f"After {stage}:")
     print(f"  Number of nodes: {graph.number_of_nodes()}")
     print(f"  Number of edges: {graph.number_of_edges()}")
-    print(f"  Max depth: {max(nx.shortest_path_length(graph, source='wd:Q35120').values())}")
+    print(f"  Max depth: {max(nx.shortest_path_length(graph, source='Q35120').values())}")
     avg_in_degree = sum(dict(graph.in_degree()).values()) / graph.number_of_nodes()
     print(f"  Average in-degree: {avg_in_degree}")
     
     
 
 def draw_intermediate_graphs(graph, cls2label, mapping, stage, loc):
-    nodes_list = ['wd:Q7930989', 'wd:Q215627', 'wd:Q15324', 'wd:Q476300', 'wd:Q11424', 'wd:Q46970', 'wd:Q783794', 'wd:Q2095', 'wd:Q515', 'wd:Q5']
+    nodes_list = ['Q7930989', 'Q215627', 'Q15324', 'Q476300', 'Q11424', 'Q46970', 'Q783794', 'Q2095', 'Q515', 'Q5']
     nodes_name = [cls2label[node] for node in nodes_list]
     for i, node in enumerate(nodes_list):
         # check folder exists
@@ -38,7 +38,7 @@ def draw_intermediate_graphs(graph, cls2label, mapping, stage, loc):
         image = graph_utils.draw_graph(graph, node, cls2label, mapping=mapping)
         if image is None:
             continue
-        with open(os.path.join(loc, nodes_name[i], f"{node[3:]}_{stage}.svg"), "w") as svg_file:
+        with open(os.path.join(loc, nodes_name[i], f"{node}_{stage}.svg"), "w") as svg_file:
             svg_file.write(image)
 
 
@@ -61,8 +61,9 @@ def load_submatrix(emb_pkl_path, sub_nodes):
     global_nodes = data["nodes"]
     global_emb = data["emb"]
 
-    if not global_nodes[0].startswith('wd:'):
-        global_nodes = ['wd:' + node for node in global_nodes]
+    # No wd: prefix for global nodes
+    # if not global_nodes[0].startswith('wd:'):
+    #     global_nodes = ['wd:' + node for node in global_nodes]
 
     global_node2idx = {v: i for i, v in enumerate(global_nodes)}
 
@@ -80,36 +81,40 @@ def load_submatrix(emb_pkl_path, sub_nodes):
 
 if __name__ == "__main__":
 
-    # get arguments
-    if len(sys.argv) > 1:
-        llm = sys.argv[1]  # e.g., 'gpt-4o'
-    else:
-        raise ValueError("Please provide the LLM name as a command-line argument.")
+    # file paths
+    OUTPUT_FOLDER = config.LLM_OUTPUT_DIR
+    INTERMEDIATE_FOLDER = config.INTERMEDIATE_GRAPHS_DIR
+    LABELS_FILE = config.TAXONOMY_LABELS_FILE
+    CLS_INST_COUNT_FILE = config.CLS_INST_COUNT_FILE
+    HIERARCHY_FILE = config.TAXONOMY_FILE
+    MAJORITY_PREDICTIONS_FILE = config.MAJORITY_PREDICTIONS_FILE
+    MAJORITY_PREDICTIONS_REWIRE_FILE = config.MAJORITY_PREDICTIONS_REWIRE_FILE
+    cls2label = graph_utils.load_labels(LABELS_FILE)
     
-    cls2label = {} # qid: label
-    path = '../../data/clean'
-    with open(os.path.join(path, 'wiki_2026_filtered_labels_v3.tsv'), 'r') as f_label: # TBC
-        for line in f_label:
-            terms = line.strip().split('\t')
-            if len(terms) > 1:
-                cls, label = terms[0], terms[1]
-                if not cls.startswith('wd:'):
-                    cls = 'wd:' + cls
-                cls2label[cls] = label[1:-1]
+
+    CLS_INST_COUNT = dict()
+    with open(CLS_INST_COUNT_FILE, "r", encoding="utf-8") as f:
+        reader = csv.reader(f) # "class", "instance_count"
+        for row in reader:
+            if row[0].startswith("http://www.wikidata.org/entity/"):
+                cls = row[0].split("/")[-1]
+                CLS_INST_COUNT[cls] = int(row[1])
     
     # parameters
+    LLMs = config.LLM_MODELS
     threshold = 0.5
 
-    cleaner = TaxonCleaner('../../quick_check/data/clean/', model=llm)
-    # cleaner.deduce_predictions(f'../results/clean/{llm}_outputs_2026.json', threshold=threshold) #TBC
-    # cleaner.store_predictions(f"../results/wikc_in_llms/{llm}")
-    # cleaner.store_majority_predictions(f"../results/wikc_in_llms/", model_names=['qwen32b', 'gemma27b', 'mistral24b'])
-    cleaner.load_majority_predictions(f"../results/wikc_in_llms/")
+    # get majority predictions
+    cleaner = TaxonCleaner(output_dir=OUTPUT_FOLDER, init_taxonomy=HIERARCHY_FILE, 
+                                 cls_inst_count=CLS_INST_COUNT, models=LLMs)
+    if not os.path.exists(os.path.join(OUTPUT_FOLDER, MAJORITY_PREDICTIONS_FILE)):
+        cleaner.get_majority_predictions(file_name=MAJORITY_PREDICTIONS_FILE, threshold=threshold)
+    else:
+        cleaner.load_majority_predictions(file_name=MAJORITY_PREDICTIONS_FILE)
 
 
     # calculate similarity matrix
-    emb_path = '../../data/clean'
-    emb_pkl = os.path.join(emb_path, 'wiki_2026_labels_emb.pkl')
+    emb_pkl = config.EMBEDDING_PKL_FILE
     all_nodes = sorted(list(cleaner.wiki_dag.nodes()))
     if os.path.exists(emb_pkl):
         emb_sub = load_submatrix(emb_pkl, all_nodes)
@@ -122,66 +127,65 @@ if __name__ == "__main__":
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         Str_model.to(device) # gpu
         print("Calculating similarity matrix...")
-        simi_matrix, node2id = graph_utils.calculate_simi_matrix(cleaner.wiki_dag, Str_model, Str_tokenizer, cls2label, path=f"../results/wikc_in_llms/{llm}")
+        simi_matrix, node2id = graph_utils.calculate_simi_matrix(cleaner.wiki_dag, Str_model, Str_tokenizer, cls2label, file_path=emb_pkl)
     
     # original taxonomy
     satisfy_constraints(cleaner.wiki_dag, "original")
-    # draw_intermediate_graphs(cleaner.wiki_dag, cls2label, cleaner.mapping, "original", f"../results/wikc_in_llms/{llm}")
+    draw_intermediate_graphs(cleaner.wiki_dag, cls2label, cleaner.mapping, "original", INTERMEDIATE_FOLDER)
 
     # cut
     cleaner.cut(simi_matrix, node2id)
     satisfy_constraints(cleaner.wiki_dag, "cut")
-    draw_intermediate_graphs(cleaner.wiki_dag, cls2label, cleaner.mapping, "cut", f"../results/wikc_in_llms/{llm}")
-    cleaner.store_intermediate_graphs(f"../results/wikc_in_llms/{llm}/intermediate_graphs", step="cut")
+    draw_intermediate_graphs(cleaner.wiki_dag, cls2label, cleaner.mapping, "cut", INTERMEDIATE_FOLDER)
+    cleaner.store_intermediate_graphs(INTERMEDIATE_FOLDER, step="cut")
 
 
     # resolve
     cleaner.resolve(simi_matrix, node2id)
     satisfy_constraints(cleaner.wiki_dag, "resolve")
-    draw_intermediate_graphs(cleaner.wiki_dag, cls2label, cleaner.mapping, "resolve", f"../results/wikc_in_llms/{llm}")
-    cleaner.store_intermediate_graphs(f"../results/wikc_in_llms/{llm}/intermediate_graphs", step="resolve")
+    draw_intermediate_graphs(cleaner.wiki_dag, cls2label, cleaner.mapping, "resolve", INTERMEDIATE_FOLDER)
+    cleaner.store_intermediate_graphs(INTERMEDIATE_FOLDER, step="resolve")
 
     # reduce
     cleaner.reduce()
     satisfy_constraints(cleaner.wiki_dag, "reduce")
-    draw_intermediate_graphs(cleaner.wiki_dag, cls2label, cleaner.mapping, "reduce", f"../results/wikc_in_llms/{llm}")
-    cleaner.store_intermediate_graphs(f"../results/wikc_in_llms/{llm}/intermediate_graphs", step="reduce")
+    draw_intermediate_graphs(cleaner.wiki_dag, cls2label, cleaner.mapping, "reduce", INTERMEDIATE_FOLDER)
+    cleaner.store_intermediate_graphs(INTERMEDIATE_FOLDER, step="reduce")
 
     # merge_rewire
-    rewire_loc = f"../results/rewire/results_json/{llm}_rewire_outputs_2026.json"
-    save_rewire_loc = f"../results/rewire/data/"
+    rewire_loc = os.path.join(OUTPUT_FOLDER, MAJORITY_PREDICTIONS_REWIRE_FILE)
     if os.path.exists(rewire_loc):
         unpredicted_edges = cleaner.exist_prediction_for_all_reiwred_links(rewire_loc, simi_matrix=simi_matrix, node2id=node2id)
         if len(unpredicted_edges) > 0:
-            print(f"Number of unpredicted edges: {len(unpredicted_edges)}")
             # save the unpredicted edges
-            with open(f"../results/wikc_in_llms/{llm}/unpredicted_edges.txt", "w") as f:
+            with open(os.path.join(OUTPUT_FOLDER, "unpredicted_rewire_edges.txt"), "w") as f:
                 for edge in unpredicted_edges:
                     child, parent = edge
-                    f.write(f"{child}\t{parent}\n")
+                    f.write(f"{child},{parent}\n")
             raise ValueError("Unpredicted edges found, please check the rewire results.")
-    valid_merge_edges = cleaner.check_valid_merge_edges(rewire_file_loc=rewire_loc, threshold_rewire=0.5, simi_matrix=simi_matrix, node2id=node2id, save_loc=save_rewire_loc)
-    cleaner.merge_new_4(valid_merge_edges) # parent, child can only have one merge at maximum
+    valid_merge_edges = cleaner.check_valid_merge_edges(rewire_file_loc=rewire_loc, threshold_rewire=threshold, simi_matrix=simi_matrix, node2id=node2id, save_loc=rewire_loc)
+    cleaner.merge(valid_merge_edges) # parent, child can only have one merge at maximum
     satisfy_constraints(cleaner.wiki_dag, "merge")
-    draw_intermediate_graphs(cleaner.wiki_dag, cls2label, cleaner.mapping, "merge", f"../results/wikc_in_llms/{llm}")
-    cleaner.store_intermediate_graphs(f"../results/wikc_in_llms/{llm}/intermediate_graphs", step="merge")
+    draw_intermediate_graphs(cleaner.wiki_dag, cls2label, cleaner.mapping, "merge", INTERMEDIATE_FOLDER)
+    cleaner.store_intermediate_graphs(INTERMEDIATE_FOLDER, step="merge")
 
     # filter
-    wikc = cleaner.filter(wikipedia_loc='../../data/data_2026/wikidata/wikipedia')
+    wikc = cleaner.filter(wikipedia_loc=config.WIKIPEDIA_DIR)
     satisfy_constraints(wikc, "filter")
-    draw_intermediate_graphs(wikc, cls2label, cleaner.mapping, "filter", f"../results/wikc_in_llms/{llm}")
-    cleaner.store_intermediate_graphs(f"../results/wikc_in_llms/{llm}/intermediate_graphs", step="filter")
+    draw_intermediate_graphs(wikc, cls2label, cleaner.mapping, "filter", INTERMEDIATE_FOLDER)
+    cleaner.store_intermediate_graphs(INTERMEDIATE_FOLDER, step="filter")
 
     # store the final cleaned taxonomy
-    with open(f"../results/wikc_in_llms/{llm}/wicleanData.txt", "w") as f:
+    os.makedirs(config.WICLEAN_OUTPUT_DIR, exist_ok=True)
+    with open(config.WICLEAN_TAXONOMY_FILE, "w") as f:
         for u, v in wikc.edges():
-            f.write(f"{v}\t{u}\n") # child -> parent subclassOf
+            f.write(f"{v},{u}\n") # child -> parent subclassOf
 
     # show the final statistics
     print(f"================================================")
     print(f"Number of nodes: {wikc.number_of_nodes()}")
     print(f"Number of edges: {wikc.number_of_edges()}")
-    print(f"Max depth: {max(nx.shortest_path_length(wikc, source='wd:Q35120').values())}")
+    print(f"Max depth: {max(nx.shortest_path_length(wikc, source='Q35120').values())}")
     print(f"Number of roots: {len([node for node in wikc.nodes() if not list(wikc.predecessors(node))])}")
     print(f"Number of leaves: {len([node for node in wikc.nodes() if wikc.out_degree(node) == 0])}")
     print(f"Number of internal nodes: {len([node for node in wikc.nodes() if wikc.out_degree(node) > 0])}")
@@ -192,21 +196,21 @@ if __name__ == "__main__":
     print(f"Average out-degree: {avg_out_degree}")
     print(f"================================================")
 
-    # store deleted edges
-    with open(f"../results/wikc_in_llms/{llm}/deleted_edges.txt", "w") as f:
-        for parent, child in cleaner.edges_del:
-            f.write(f"{parent}\t{child}\n")
+    # # store deleted edges
+    # with open(os.path.join(DATA_FOLDER, "wicleanData/", "deleted_edges.txt"), "w") as f:
+    #     for parent, child in cleaner.edges_del:
+    #         f.write(f"{parent}\t{child}\n")
 
     # store mapping: child -> parent
-    cleaner.save_mapping(f"../results/wikc_in_llms/{llm}")
+    cleaner.save_mapping(config.WICLEAN_MAPPING_FILE)
 
-    # store new cls_inst_count
-    with open(f"../results/wikc_in_llms/{llm}/cls_inst_count.txt", "w") as f:
-        for cls, count in cleaner.cls_inst_stats.items():
-            f.write(f"{cls}\t{count}\n")
+    # # store new cls_inst_count
+    # with open(f"../results/wikc_in_llms/{llm}/cls_inst_count.txt", "w") as f:
+    #     for cls, count in cleaner.cls_inst_stats.items():
+    #         f.write(f"{cls}\t{count}\n")
     
     # print the top level classes
-    top_level_classes = list(wikc.successors('wd:Q35120'))
+    top_level_classes = list(wikc.successors('Q35120'))
     print(f"Number of top level classes: {len(top_level_classes)}")
     for cls in top_level_classes:
         print(f"{cls}: {cls2label[cls]}")

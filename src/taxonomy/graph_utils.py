@@ -15,6 +15,7 @@ from tqdm import tqdm
 from torch import Tensor
 import pickle
 import os
+import json
 
 
 def getSubClasses(cls, classes, taxonomyDown):
@@ -80,12 +81,12 @@ def load_wikipedia_mapped_ents(graph, loc):
     Loads the mapped Wikipedia entities into Wikidata.
     """
     mapped_wiki_ents = set()
-    wikipedia_lists = ['enwiki', 'frwiki', 'dewiki', 'zhwiki', 'arwiki', 'eswiki'] # 5 different lanugages
+    wikipedia_lists = ['enwiki', 'frwiki', 'dewiki', 'zhwiki', 'arwiki', 'eswiki'] # 6 different lanugages
     for wikifile in wikipedia_lists:
         with open(os.path.join(loc, wikifile), 'r') as file:
             for line in file:
                 qid = line.strip().split(',')[1]
-                prefix_qid = 'wd:'+str(qid)
+                prefix_qid = str(qid) # no wd: prefix
                 if graph.has_node(prefix_qid):
                     mapped_wiki_ents.add(prefix_qid)
     return mapped_wiki_ents
@@ -191,7 +192,7 @@ def draw_graph(graph, target, cls2label, mapping=None):
     extract_ = adjacency_transpose[ancestors, :][:, ancestors]
     extract_nodes = list(np.array(names)[ancestors])
 
-    root_index = extract_nodes.index('wd:Q35120')
+    root_index = extract_nodes.index('Q35120')
     distances = get_distances(extract_.T, source=root_index)
     extract_names = [cls2label[qid] for qid in extract_nodes]
     weights = np.clip(~distances+max(distances) - 1, a_min=0, a_max=3) 
@@ -231,8 +232,8 @@ def format_taxonomy(path, digraph):
     with open(path+'WiKC.nt', 'w') as taxowriter:
         for edge in digraph.edges():
             parent, child = edge
-            formated_child = '<http://www.wikidata.org/entity/'+child[3:]+'>'
-            formated_parent = '<http://www.wikidata.org/entity/'+parent[3:]+'>'
+            formated_child = '<http://www.wikidata.org/entity/'+child+'>'
+            formated_parent = '<http://www.wikidata.org/entity/'+parent+'>'
             rel = '<http://www.wikidata.org/prop/direct/P279>'
             taxowriter.write(formated_child+' '+rel+' '+formated_parent+' .\n')
 
@@ -240,7 +241,7 @@ def format_taxonomy(path, digraph):
 def generate_html(node, taxonomy, cls2label):
     html = '<ul>'
     for child in taxonomy.get(node, []):
-        html += f'<li><span class="toggle" onclick="toggleChildren(this)">&#9660;</span>{cls2label[child]}({child[3:]})<ul class="children">'
+        html += f'<li><span class="toggle" onclick="toggleChildren(this)">&#9660;</span>{cls2label[child]}({child})<ul class="children">'
         html += generate_html(child, taxonomy, cls2label)
         html += '</ul></li>'
     html += '</ul>'
@@ -339,7 +340,7 @@ def encode_text(model, tokenizer, input_texts, device=None):
     return embeddings
 
 
-def calculate_simi_matrix(graph, model, tokenizer, cls2label, path):
+def calculate_simi_matrix(graph, model, tokenizer, cls2label, file_path):
     if torch.cuda.is_available():
         device = torch.device("cuda")
     else:
@@ -357,16 +358,20 @@ def calculate_simi_matrix(graph, model, tokenizer, cls2label, path):
     # Stack embeddings to form the matrix
     embedding_matrix = torch.cat(embeddings, dim=0)
     embedding_matrix = embedding_matrix.numpy()
+    # store the embedding matrix
+    result = {"nodes": nodes, "emb": embedding_matrix}
+    with open(file_path, 'wb') as f:
+        pickle.dump(result, f)
     # calculate cosine similarity based on adjacency
     simi_matrix = embedding_matrix @ embedding_matrix.T
-    simi_matrix = simi_matrix * adjacency_matrix  # mask non-adjacent pairs
+    # simi_matrix = simi_matrix * adjacency_matrix  # mask non-adjacent pairs
     # goes to sparse matrix
-    simi_matrix = csr_matrix(simi_matrix)
+    # simi_matrix = csr_matrix(simi_matrix)
 
-    # store the similarity matrix
-    result = {"id": node2id, "simi": simi_matrix}
-    with open(os.path.join(path, 'simi_matrix.pkl'), 'wb') as f:
-        pickle.dump(result, f)
+    # # store the similarity matrix
+    # result = {"id": node2id, "simi": simi_matrix}
+    # with open(file_path, 'wb') as f:
+    #     pickle.dump(result, f)
     return simi_matrix, node2id
 
 
@@ -411,3 +416,63 @@ def avg_path_to_root(digraph, cls_inst_stats, root):
         total_inst_path_count += count * cls_inst_stats[cls]
         total_inst_count += cls_inst_stats[cls]
     return total_inst_path_count / total_inst_count
+
+
+########################################################
+# Loading
+########################################################
+
+def load_labels(path):
+    cls2label = {}
+    with open(path, 'r') as f:
+        for line in f:
+            cls, label = line.strip().split('\t')
+            cls2label[cls] = label[1:-1] # strip the quotes
+    return cls2label # no wd: prefix
+
+
+def load_descriptions(path):
+    cls2desc = {}
+    with open(path, 'r') as f:
+        for line in f:
+            cls, desc = line.strip().split('\t')
+            cls2desc[cls] = desc[1:-1] # strip the quotes
+    return cls2desc # no wd: prefix
+
+
+def json_transform(raw_files, output_file):
+    seen_ids = set()
+    data = []
+    duplicates = 0
+    for raw_file in raw_files:
+        if not os.path.exists(raw_file):
+            raise FileNotFoundError(f"{raw_file} does not exist.")
+        with open(raw_file, 'r', encoding='utf-8') as f:
+            print(f"Processing {raw_file}")
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                entry = json.loads(line)
+                entry_id = entry.get('id')
+                if entry_id in seen_ids:
+                    duplicates += 1
+                    continue
+                seen_ids.add(entry_id)
+                if entry['answer'] is None:
+                    print(f"WARNING: Answer is None for id {entry_id}")
+                    # continue
+                if entry['answer_inverse'] is None:
+                    print(f"WARNING: Answer inverse is None for id {entry_id}")
+                    # continue
+                entry['answer'] = entry['answer'].strip() if entry['answer'] is not None else None
+                entry['answer_inverse'] = entry['answer_inverse'].strip() if entry['answer_inverse'] is not None else None
+                data.append(entry)
+    print(f"Total entries loaded: {len(data) + duplicates}")
+    print(f"Duplicates removed:   {duplicates}")
+    print(f"Unique entries:       {len(data)}")
+
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=4, ensure_ascii=False)
+    print(f"Output written to:    {output_file}")
