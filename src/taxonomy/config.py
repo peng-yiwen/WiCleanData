@@ -33,6 +33,7 @@ SUBCLASS_EVAL_PROMPT = os.path.join(PROMPTS_DIR, "SubClassEval.txt")
 # Final output
 WICLEAN_OUTPUT_DIR = os.path.join(DATA_DIR, "wicleanData")
 WICLEAN_TAXONOMY_FILE = os.path.join(WICLEAN_OUTPUT_DIR, "wicleanTaxonomy.txt")
+WICLEAN_TAXONOMY_BEFORE_WP_FILE = os.path.join(WICLEAN_OUTPUT_DIR, "wicleanTaxonomy_before_wikipedia_filtering.txt")
 WICLEAN_MAPPING_FILE = os.path.join(WICLEAN_OUTPUT_DIR, "wiclean_mapping.txt")
 
 # LLM prediction file patterns (relative filenames within LLM_OUTPUT_DIR)

@@ -1,0 +1,7 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+SELECT DISTINCT ?descendant
+WHERE {
+  ?descendant wdt:P279* wd:Q13442814 .
+}

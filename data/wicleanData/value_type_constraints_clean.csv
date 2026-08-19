@@ -1,0 +1,2050 @@
+property,property_label,value_type,value_type_label
+P1000,record held,Q1241356,record
+P1001,applies to jurisdiction,Q13414953,religious denomination
+P1001,applies to jurisdiction,Q3895768,fictional location
+P1001,applies to jurisdiction,Q43229,organization
+P1001,applies to jurisdiction,Q44782,port
+P1001,applies to jurisdiction,Q2221906,geographic location
+P1001,applies to jurisdiction,Q8187769,economic activity
+P1001,applies to jurisdiction,Q82794,region
+P1002,engine configuration,Q2576663,engine configuration
+P1016,asteroid taxonomy,Q15101896,asteroid classification
+P10176,type host,Q16521,taxon
+P1018,language regulatory body,Q5,human
+P1018,language regulatory body,Q4164871,position
+P1018,language regulatory body,Q43229,organization
+P102,member of political party,Q2738074,political movement
+P102,member of political party,Q6138528,political coalition
+P102,member of political party,Q7210356,political organization
+P10229,next level in hierarchy,Q56061,administrative territorial entity
+P10241,individual of taxon,Q15707583,fictional taxon
+P10241,individual of taxon,Q16521,taxon
+P10254,associated cadastral district,Q2989400,commune of Morocco
+P1026,academic thesis,Q1266946,thesis
+P1028,donated by,Q43229,organization
+P1028,donated by,Q5,human
+P1029,crew member,Q5,human
+P1029,crew member,Q95074,character
+P103,native language,Q17376908,languoid
+P10308,director of publication,Q5,human
+P1035,honorific suffix,Q1964223,name suffix
+P1035,honorific suffix,Q618779,award
+P1037,director / manager,Q215627,person
+P1037,director / manager,Q95074,character
+P10374,computational complexity,Q908207,complexity class
+P1038,relative,Q14897293,fictional entity
+P1038,relative,Q26401003,individual animal
+P1039,kinship to subject,Q171318,kinship
+P1040,film editor,Q5,human
+P1040,film editor,Q10648343,duo
+P1040,film editor,Q1400264,artist collective
+P1040,film editor,Q215380,musical group
+P10408,created during,Q1190554,occurrence
+P1041,socket supported,Q727009,CPU socket
+P10449,trained by,Q5,human
+P1049,worshipped by,Q71966963,religion or world view
+P1049,worshipped by,Q17364638,fictional religion
+P1049,worshipped by,Q3257686,locality
+P1050,medical condition,Q808,virus
+P1050,medical condition,Q18596079,fictional medical condition
+P1050,medical condition,Q7189713,physiological condition
+P1050,medical condition,Q796194,medical procedure
+P10527,documentation files at,Q2668072,collection
+P10527,documentation files at,Q43229,organization
+P1056,product or material produced,Q1799072,method
+P1056,product or material produced,Q1310239,component
+P1056,product or material produced,Q16686448,artificial object
+P1056,product or material produced,Q2424752,product
+P1056,product or material produced,Q4406616,concrete object
+P1056,product or material produced,Q58778,system
+P1056,product or material produced,Q7048977,abstract entity
+P1056,product or material produced,Q8187769,economic activity
+P10594,taxonomic treatment,Q32945461,taxonomic treatment
+P106,occupation,Q192581,job activity
+P106,occupation,Q21451536,"fictional office, position, or title"
+P106,occupation,Q228534,working animal
+P106,occupation,Q4164871,position
+P106,occupation,Q4504549,religious figure
+P106,occupation,Q47472256,fictional religious occupation
+P1060,disease transmission process,Q525512,pathogen transmission
+P10606,notable role,Q5,human
+P10606,notable role,Q95074,character
+P10627,web interface software,Q7397,software
+P10629,suggested data fields,Q18616576,Wikidata property
+P1064,track gauge,Q214519,track gauge
+P10645,reports to,Q4164871,position
+P1066,student of,Q14897293,fictional entity
+P1066,student of,Q5,human
+P10661,exhibited creator,Q43229,organization
+P10661,exhibited creator,Q5,human
+P10663,applies to work,Q559618,fictional universe
+P10663,applies to work,Q386724,work
+P10663,applies to work,Q9134,mythology
+P10664,featured track(s),Q55850593,music track with vocals
+P10664,featured track(s),Q55850643,music track without lyrics
+P10672,raw material processed,Q2424752,product
+P1068,instruction set,Q272683,instruction set architecture
+P10695,introduced in,Q386724,work
+P1071,location of creation,Q3895768,fictional location
+P1071,location of creation,Q618123,geographical feature
+P1072,readable file format,Q235557,file format
+P10726,class of non-item property value,Q496946,table
+P10726,class of non-item property value,Q184754,string
+P10726,class of non-item property value,Q47461344,written work
+P10726,class of non-item property value,Q2912517,value
+P10726,class of non-item property value,Q3302947,audio recording
+P10726,class of non-item property value,Q478798,image
+P1073,writable file format,Q235557,file format
+P10741,dance style,Q11639,dance
+P1075,rector,Q5,human
+P10754,distributed from,Q2221906,geographic location
+P10788,in operation on service,Q1067164,transport service itinerary
+P1079,launch contractor,Q11753232,launch service provider
+P108,employer,Q14897293,fictional entity
+P108,employer,Q15911314,association
+P108,employer,Q43229,organization
+P108,employer,Q5,human
+P108,employer,Q56061,administrative territorial entity
+P108,employer,Q6056746,campaign
+P108,employer,Q1002697,periodical
+P108,employer,Q1248784,airport
+P108,employer,Q13226383,facility
+P108,employer,Q15416,television program
+P108,employer,Q1555508,radio program
+P108,employer,Q2001305,television channel
+P108,employer,Q35127,website
+P108,employer,Q431289,brand
+P1080,from narrative universe,Q9134,mythology
+P1080,from narrative universe,Q47306921,fictional parallel universe
+P1080,from narrative universe,Q559618,fictional universe
+P1080,from narrative universe,Q867335,literary cycle
+P10806,orchestrator,Q5,human
+P10818,last entry,Q1260524,time of day
+P10836,inker,Q43229,organization
+P10836,inker,Q5,human
+P10837,penciller,Q5,human
+P10837,penciller,Q43229,organization
+P10888,contains the statistical territorial entity,Q123705,neighborhood
+P10888,contains the statistical territorial entity,Q15042037,statistical territorial entity
+P10893,recordist,Q43229,organization
+P10893,recordist,Q5,human
+P10894,spoken by,Q15632617,fictional human
+P10894,spoken by,Q5,human
+P10960,harvested organism(s),Q16521,taxon
+P110,illustrator,Q43229,organization
+P110,illustrator,Q5,human
+P11105,annotator,Q61002,pseudonym
+P11105,annotator,Q215627,person
+P11105,annotator,Q43229,organization
+P11106,alphabetical index,Q2545446,grapheme
+P11108,recorded participant,Q8436,family
+P11108,recorded participant,Q12973014,sports team
+P11108,recorded participant,Q215380,musical group
+P11108,recorded participant,Q26401003,individual animal
+P11146,collection items at,Q2668072,collection
+P11146,collection items at,Q163740,nonprofit organization
+P11146,collection items at,Q31855,research institute
+P11146,collection items at,Q33506,museum
+P112,founder,Q14897293,fictional entity
+P112,founder,Q215627,person
+P112,founder,Q43229,organization
+P11220,fruit color,Q1075,color
+P11231,has biological vector,Q16521,taxon
+P113,airline hub,Q1248784,airport
+P1136,solved by,Q5,human
+P1137,fossil found in this unit,Q40614,fossil
+P11387,image processor,Q861004,image processor
+P114,airline alliance,Q465909,airline alliance
+P1142,political ideology,Q49773,social movement
+P1142,political ideology,Q58927801,ethical theory
+P1142,political ideology,Q7210356,political organization
+P1142,political ideology,Q117850,doctrine
+P1142,political ideology,Q12909644,political ideology
+P1142,political ideology,Q5891,philosophy
+P1145,Lagrangian point,Q190463,Lagrangian point
+P11491,member of Roman tribe,Q938560,tribus
+P115,home venue,Q811979,architectural structure
+P1151,topic's main Wikimedia portal,Q4663903,Wikimedia portal
+P11603,transcribed by,Q5,human
+P1165,home world,Q15796005,location in a fictional work
+P1165,home world,Q6999,astronomical object
+P1170,transmitted signal type,Q174984,signal
+P1171,approximation algorithm,Q621751,approximation algorithm
+P11738,"handled, mitigated, or managed by",Q10273457,equipment
+P11738,"handled, mitigated, or managed by",Q1799072,method
+P11738,"handled, mitigated, or managed by",Q21075690,solution
+P11738,"handled, mitigated, or managed by",Q2251595,protection
+P11747,holds diplomatic passport of,Q6256,country
+P11747,holds diplomatic passport of,Q96196009,former or current state
+P11799,alternate universe counterpart,Q14897293,fictional entity
+P11811,beforehand owned by,Q43229,organization
+P11811,beforehand owned by,Q5,human
+P11812,afterward owned by,Q43229,organization
+P11814,funded by grant,Q230788,grant
+P11849,first performance by,Q4502119,art group
+P11849,first performance by,Q5,human
+P119,place of burial,Q3895768,fictional location
+P119,place of burial,Q48634,sarcophagus
+P119,place of burial,Q6023295,funerary structure
+P119,place of burial,Q618123,geographical feature
+P1192,connecting service,Q1067164,transport service itinerary
+P1192,connecting service,Q15079663,rapid transit line
+P1194,received signal type,Q174984,signal
+P1200,category for the water basin,Q4167836,Wikimedia category
+P12002,has heir or beneficiary,Q43229,organization
+P12002,has heir or beneficiary,Q5,human
+P1201,space tug,Q1958838,space tug
+P12011,tribe,Q108872743,fictional tribe
+P12011,tribe,Q133311,tribe
+P12011,tribe,Q2882257,First Nation band
+P1202,carries scientific instrument,Q3099911,scientific instrument
+P12041,type of musical notation,Q233861,figuring
+P12050,demo of,Q7397,software
+P12095,fonds,Q2668072,collection
+P121,item operated,Q2385804,educational institution
+P121,item operated,Q1322323,itinerary
+P121,item operated,Q13226383,facility
+P121,item operated,Q14897293,fictional entity
+P121,item operated,Q19541,search engine
+P121,item operated,Q2668072,collection
+P121,item operated,Q2897903,goods and services
+P121,item operated,Q340169,communications media
+P121,item operated,Q39546,physical tool
+P121,item operated,Q431289,brand
+P121,item operated,Q47311934,fleet
+P121,item operated,Q507619,retail chain
+P121,item operated,Q728937,railway line
+P121,item operated,Q994895,technical system
+P12132,stated in source according to,Q8513,database
+P122,basic form of government,Q28108,political system
+P1221,compressor type,Q178898,compressor
+P1227,astronomical filter,Q4811658,astronomical filter
+P123,publisher,Q2608849,imprint
+P123,publisher,Q1002697,periodical
+P123,publisher,Q2001305,television channel
+P123,publisher,Q22222786,government program
+P123,publisher,Q35127,website
+P123,publisher,Q431289,brand
+P123,publisher,Q43229,organization
+P123,publisher,Q5,human
+P123,publisher,Q56061,administrative territorial entity
+P12322,underlying structure(s),Q748349,mathematical structure
+P12323,RAM type,Q193395,recording medium
+P12324,production manager,Q5,human
+P12443,has cabinet,Q4686848,advisory council
+P12443,has cabinet,Q640506,cabinet
+P12457,invariant under,Q11348,function
+P12457,invariant under,Q130998,equivalence relation
+P12475,top scorer,Q5,human
+P12476,filial church,Q16970,church building
+P12484,competition judge,Q7239,organism
+P12526,performing organization,Q43229,organization
+P12548,media modality,Q107435521,record
+P126,maintained by,Q22222786,government program
+P126,maintained by,Q5,human
+P126,maintained by,Q13226383,facility
+P126,maintained by,Q4164871,position
+P126,maintained by,Q43229,organization
+P12617,creative director,Q5,human
+P12621,beneficial owner,Q5,human
+P1268,represents,Q5,human
+P1268,represents,Q151885,concept
+P1268,represents,Q1656682,event
+P1268,represents,Q43229,organization
+P127,owned by,Q1639378,social system
+P127,owned by,Q2001305,television channel
+P127,owned by,Q14897293,fictional entity
+P127,owned by,Q15642541,human-geographic territorial entity
+P127,owned by,Q215627,person
+P127,owned by,Q44613,monastery
+P127,owned by,Q61002,pseudonym
+P12795,showrunner,Q5,human
+P128,regulates (molecular biology),Q2996394,biological process
+P128,regulates (molecular biology),Q7187,gene
+P12895,indexer,Q43229,organization
+P12895,indexer,Q5,human
+P129,physically interacts with,Q4406616,concrete object
+P1290,godparent,Q5,human
+P1290,godparent,Q15632617,fictional human
+P12912,object of occurrence,Q14897293,fictional entity
+P12912,object of occurrence,Q17376908,languoid
+P12912,object of occurrence,Q26907166,temporal entity
+P12912,object of occurrence,Q488383,object
+P12912,object of occurrence,Q99527517,collective entity
+P12913,class of object(s) of occurrence,Q35120,entity
+P12933,"relates to sustainable development goal, target or indicator",Q7649586,Sustainable Development Goals
+P12969,game designer,Q5,human
+P1299,depicted by,Q82799,name
+P1299,depicted by,Q386724,work
+P12994,class of agent(s) of action,Q14897293,fictional entity
+P12995,agent of action,Q14897293,fictional entity
+P1303,instrument,Q109659725,musical technique
+P1303,instrument,Q34379,musical instrument
+P1304,central bank,Q66344,central bank
+P13047,leased to,Q56061,administrative territorial entity
+P1308,position holder,Q5,human
+P1308,position holder,Q95074,character
+P131,located in the administrative territorial entity,Q15642541,human-geographic territorial entity
+P131,located in the administrative territorial entity,Q245016,military base
+P131,located in the administrative territorial entity,Q269528,unincorporated area
+P1312,has facet polytope,Q747980,polytope
+P1313,office held by head of government,Q21451536,"fictional office, position, or title"
+P1313,office held by head of government,Q4164871,position
+P13176,taxon known by this common name,Q16521,taxon
+P13177,homonymous taxon,Q16521,taxon
+P1318,proved by,Q16017119,collective pseudonym
+P1318,proved by,Q5,human
+P13188,meeting of,Q15275719,recurring event
+P13188,meeting of,Q43229,organization
+P1321,municipal affiliation of a Swiss national,Q685309,former municipality of Switzerland
+P1321,municipal affiliation of a Swiss national,Q70208,Municipality of Switzerland
+P13210,organisation tax status,Q131437023,tax status
+P1322,dual to,Q125977,vector space
+P1322,dual to,Q747980,polytope
+P13260,romantic orientation,Q4688879,romantic orientation
+P13269,directs readers to,Q49848,document
+P1327,partner in business or sport,Q5,human
+P1327,partner in business or sport,Q95074,character
+P13296,study or design for this work,Q17537576,creative work
+P13308,software used for creation,Q7397,software
+P13318,mode of reproduction,Q182353,sexual reproduction
+P13338,thesis submitted for degree,Q189533,academic degree
+P13359,items classified,Q35120,entity
+P1336,territory claimed by,Q6256,country
+P1336,territory claimed by,Q43229,organization
+P13360,presented works,Q17537576,creative work
+P13360,presented works,Q8205328,artificial physical object
+P13391,data analysis method,Q35120,entity
+P1340,eye color,Q23786,eye color
+P1343,described by source,Q12139612,list
+P1343,described by source,Q2085381,publishing house
+P1343,described by source,Q386724,work
+P1343,described by source,Q49848,document
+P1343,described by source,Q1277575,correspondence
+P1343,described by source,Q1656682,event
+P1343,described by source,Q309,history
+P1343,described by source,Q34508,video recording
+P1344,participant in,Q1190554,occurrence
+P1344,participant in,Q14136353,fictional occurrence
+P1344,participant in,Q386724,work
+P1344,participant in,Q43229,organization
+P1346,winner,Q1364192,chess computer
+P1346,winner,Q1656682,event
+P1346,winner,Q386724,work
+P1346,winner,Q43229,organization
+P1346,winner,Q486972,human settlement
+P1346,winner,Q5,human
+P1346,winner,Q5107,continent
+P1346,winner,Q56061,administrative territorial entity
+P1346,winner,Q726,horse
+P1346,winner,Q95074,character
+P13464,terminal speaker,Q5,human
+P13478,nomenclatural type of,Q16521,taxon
+P13497,interior designer,Q5,human
+P135,movement,Q3233738,golden age
+P135,movement,Q10274693,literary group
+P135,movement,Q12909644,political ideology
+P135,movement,Q1387659,school of thought
+P135,movement,Q264965,subculture
+P135,movement,Q3533467,group action
+P13504,kigo of,Q15275719,recurring event
+P13574,most populous urban area,Q702492,urban area
+P13593,cosplay of,Q14897293,fictional entity
+P13593,cosplay of,Q5,human
+P136,genre,Q3030248,discussion
+P136,genre,Q10428845,narrative technique
+P136,genre,Q1047113,field of study
+P136,genre,Q109551565,sub-set of literature
+P136,genre,Q3059502,critique
+P136,genre,Q317623,technical standard
+P136,genre,Q53001749,subject of depiction
+P136,genre,Q17537576,creative work
+P136,genre,Q82753,computer file
+P13602,single taken from the album or EP,Q169930,extended play
+P13602,single taken from the album or EP,Q482994,album
+P13612,breed belongs to taxon,Q16521,taxon
+P13633,worn on,Q4936952,anatomical structure
+P137,operator,Q12737077,occupation
+P137,operator,Q14897293,fictional entity
+P137,operator,Q18325841,public transport network
+P137,operator,Q19967801,online service
+P137,operator,Q215627,person
+P137,operator,Q35127,website
+P137,operator,Q43229,organization
+P137,operator,Q56061,administrative territorial entity
+P137,operator,Q1248784,airport
+P137,operator,Q15911314,association
+P137,operator,Q268592,industry
+P137,operator,Q390516,control room
+P13713,awarded for type of work,Q16686448,artificial object
+P1376,capital of,Q20750954,fictional geographic region
+P1376,capital of,Q23442,island
+P1376,capital of,Q56061,administrative territorial entity
+P1376,capital of,Q702492,urban area
+P13829,excluding work,Q559618,fictional universe
+P13829,excluding work,Q386724,work
+P13829,excluding work,Q9134,mythology
+P1383,contains settlement,Q486972,human settlement
+P13838,intervener,Q294414,public office
+P13838,intervener,Q43229,organization
+P13883,start work,Q386724,work
+P13884,end work,Q386724,work
+P13887,firmware,Q104851,firmware
+P13914,collector,Q43229,organization
+P13914,collector,Q5,human
+P1398,structure replaces,Q811979,architectural structure
+P1398,structure replaces,Q27096235,artificial geographic entity
+P1398,structure replaces,Q82794,region
+P1399,convicted of,Q3537603,transgression
+P1399,convicted of,Q124734,rebellion
+P1399,convicted of,Q2628882,legal status
+P140,religion or worldview,Q1826286,religious movement
+P140,religion or worldview,Q71966963,religion or world view
+P140,religion or worldview,Q1530022,religious organization
+P140,religion or worldview,Q17364638,fictional religion
+P140,religion or worldview,Q211606,social structure
+P140,religion or worldview,Q4392985,religious identity
+P14026,specimen classifier,Q5,human
+P14039,logical consequence of,Q108163,proposition
+P1408,licensed to broadcast to,Q27096213,geographic entity
+P14094,translates from,Q1288568,modern language
+P14094,translates from,Q33742,natural language
+P14095,translates into,Q1288568,modern language
+P14095,translates into,Q33742,natural language
+P1411,nominated for,Q4504495,award ceremony
+P1411,nominated for,Q618779,award
+P1412,"languages spoken, written or signed",Q17376908,languoid
+P1414,GUI toolkit or framework,Q47146,user interface
+P1416,affiliation,Q13414953,religious denomination
+P1416,affiliation,Q14623646,fictional organization
+P1416,affiliation,Q178706,institution
+P1416,affiliation,Q35127,website
+P1416,affiliation,Q618779,award
+P1416,affiliation,Q1370598,structure of worship
+P1416,affiliation,Q15911314,association
+P1416,affiliation,Q16970,church building
+P1416,affiliation,Q43229,organization
+P1419,shape,Q207961,shape
+P1424,topic has template,Q11266439,Wikimedia template
+P14251,peer-review process for scholarly journals or publications,Q215028,peer review
+P1427,start point,Q27096213,geographic entity
+P1427,start point,Q538685,mother ship
+P1427,start point,Q6999,astronomical object
+P1427,start point,Q811979,architectural structure
+P1429,has pet,Q2593744,fictional creature
+P1429,has pet,Q729,Animalia
+P143,imported from Wikimedia project,Q14827288,Wikimedia project
+P143,imported from Wikimedia project,Q210588,umbrella term
+P1431,executive producer,Q5,human
+P1433,published in,Q15265344,broadcaster
+P1433,published in,Q4801521,arts festival
+P1433,published in,Q17084016,nonprofit corporation
+P1433,published in,Q192283,news agency
+P1433,published in,Q2001305,television channel
+P1433,published in,Q35127,website
+P1433,published in,Q386724,work
+P1433,published in,Q6881511,enterprise
+P1433,published in,Q7243180,primary ticket outlet
+P1434,takes place in fictional universe,Q559618,fictional universe
+P1434,takes place in fictional universe,Q867335,literary cycle
+P1435,heritage designation,Q210272,cultural heritage
+P1435,heritage designation,Q386426,natural heritage
+P144,based on,Q110227435,past occurrence
+P144,based on,Q14897293,fictional entity
+P144,based on,Q1445650,holiday
+P144,based on,Q16686448,artificial object
+P144,based on,Q24334685,mythical entity
+P144,based on,Q34770,language
+P144,based on,Q3695082,sign
+P144,based on,Q729,Animalia
+P144,based on,Q95107111,license scheme
+P1441,present in work,Q386724,work
+P1441,present in work,Q42109240,stoff
+P1444,destination point,Q4130,orbit
+P1444,destination point,Q41176,building
+P1444,destination point,Q618123,geographical feature
+P1444,destination point,Q6999,astronomical object
+P1445,fictional universe described in,Q386724,work
+P1455,list of works,Q13406463,Wikimedia list article
+P1455,list of works,Q5051330,catalogue of classical compositions
+P1456,list of monuments,Q13406463,Wikimedia list article
+P1462,standards body,Q43229,organization
+P1464,category for people born here,Q4167836,Wikimedia category
+P1465,category for people who died here,Q4167836,Wikimedia category
+P149,architectural style,Q784969,architectural typology
+P150,contains the administrative territorial entity,Q56061,administrative territorial entity
+P1532,country for sport,Q11422536,international sport governing body
+P1532,country for sport,Q46135307,nation at sport competition
+P1532,country for sport,Q82794,region
+P1533,family name identical to this given name,Q4116295,surname
+P1534,end cause,Q6428674,era
+P1534,end cause,Q1151067,rule
+P1534,end cause,Q1190554,occurrence
+P1534,end cause,Q2574811,cause
+P1534,end cause,Q3505845,state
+P1534,end cause,Q628523,message
+P1535,used by,Q1799072,method
+P1535,used by,Q14897293,fictional entity
+P1535,used by,Q27096213,geographic entity
+P1535,used by,Q488383,object
+P1546,motto,Q42470,motto
+P1547,depends on software,Q7397,software
+P1547,depends on software,Q9143,programming language
+P1557,manifestation of,Q35120,entity
+P1568,definition domain,Q748349,mathematical structure
+P1568,definition domain,Q217594,class
+P157,killed by,Q215627,person
+P157,killed by,Q24334685,mythical entity
+P157,killed by,Q43229,organization
+P157,killed by,Q95074,character
+P1571,codomain,Q748349,mathematical structure
+P1571,codomain,Q217594,class
+P1576,lifestyle,Q2515887,pattern of behavior
+P1576,lifestyle,Q474191,diet
+P1582,natural product of taxon,Q16521,taxon
+P1582,natural product of taxon,Q502895,common name
+P1589,lowest point,Q27096213,geographic entity
+P159,headquarters location,Q27096213,geographic entity
+P159,headquarters location,Q3895768,fictional location
+P159,headquarters location,Q484652,international organization
+P159,headquarters location,Q42889,vehicle
+P1591,defendant,Q14897293,fictional entity
+P1591,defendant,Q5,human
+P1591,defendant,Q294414,public office
+P1591,defendant,Q43229,organization
+P1592,prosecutor,Q5,human
+P1593,legal counsel,Q43229,organization
+P1593,legal counsel,Q5,human
+P1594,judge,Q5,human
+P1594,judge,Q95074,character
+P1595,charge,Q3537603,transgression
+P1596,penalty,Q1763090,sentence
+P1596,penalty,Q186361,punishment
+P1598,consecrator,Q5,human
+P16,transport network,Q924286,transport network
+P16,transport network,Q34442,road
+P16,transport network,Q639030,people mover
+P1605,has natural reservoir,Q16521,taxon
+P1606,natural reservoir of,Q16521,taxon
+P161,cast member,Q26401003,individual animal
+P161,cast member,Q18510489,comedy troupe
+P161,cast member,Q215380,musical group
+P161,cast member,Q95074,character
+P162,producer,Q5,human
+P162,producer,Q10648343,duo
+P162,producer,Q11396960,production company
+P162,producer,Q215380,musical group
+P162,producer,Q7247847,production team
+P162,producer,Q742421,theatre company
+P162,producer,Q95074,character
+P1620,plaintiff,Q5,human
+P1620,plaintiff,Q43229,organization
+P1620,plaintiff,Q486972,human settlement
+P1625,has melody,Q856713,Christian hymn
+P1625,has melody,Q15079786,ballet
+P1625,has melody,Q379755,arrangement
+P163,flag,Q14660,flag
+P1637,undercarriage,Q263421,undercarriage
+P1639,pendant of,Q7725310,series of creative works
+P1639,pendant of,Q838948,work of art
+P1647,subproperty of,Q18616576,Wikidata property
+P1652,referee,Q5,human
+P1654,wing configuration,Q2992500,wing configuration
+P1656,unveiled by,Q5,human
+P1659,related Wikidata property,Q18616576,Wikidata property
+P166,award received,Q657438,Roman triumph
+P166,award received,Q14659,coat of arms
+P166,award received,Q16249975,homage
+P166,award received,Q4164871,position
+P166,award received,Q618779,award
+P166,award received,Q7302601,recognition
+P1660,has index case,Q5,human
+P167,structure replaced by,Q811979,architectural structure
+P167,structure replaced by,Q27096235,artificial geographic entity
+P167,structure replaced by,Q82794,region
+P1677,index case of,Q3241045,disease outbreak
+P1678,has vertex figure,Q747980,polytope
+P1686,for work,Q2133344,space mission
+P1686,for work,Q15773347,film character
+P1686,for work,Q1656682,event
+P1686,for work,Q386724,work
+P1687,main Wikidata property,Q18616576,Wikidata property
+P169,chief executive officer,Q15632617,fictional human
+P169,chief executive officer,Q5,human
+P1696,inverse property,Q18616576,Wikidata property
+P17,country,Q1250464,realm
+P17,country,Q15239622,disputed territory
+P17,country,Q161243,dependent territory
+P17,country,Q1620908,historical region
+P17,country,Q170156,confederation
+P17,country,Q253836,judicial district
+P17,country,Q3238337,mythical location
+P17,country,Q3895768,fictional location
+P17,country,Q43702,federation
+P17,country,Q59281,provisional government
+P17,country,Q5982983,jurisdiction
+P17,country,Q6256,country
+P17,country,Q678116,government-in-exile
+P17,country,Q7275,state
+P170,creator,Q16017119,collective pseudonym
+P170,creator,Q11019,machine
+P170,creator,Q43229,organization
+P170,creator,Q729,Animalia
+P170,creator,Q7397,software
+P170,creator,Q95074,character
+P171,parent taxon,Q16521,taxon
+P1716,brand,Q5,human
+P1716,brand,Q167270,trademark
+P1716,brand,Q431289,brand
+P1716,brand,Q6881511,enterprise
+P172,ethnic group,Q3254959,race
+P172,ethnic group,Q33829,human population
+P172,ethnic group,Q133311,tribe
+P172,ethnic group,Q2472587,people
+P172,ethnic group,Q2531956,ethnic minority group
+P175,performer,Q4502119,art group
+P175,performer,Q12973014,sports team
+P175,performer,Q15632617,fictional human
+P175,performer,Q1569167,video game character
+P175,performer,Q15711870,animated character
+P175,performer,Q15773317,television character
+P175,performer,Q2742167,religious community
+P175,performer,Q5354754,talent agency
+P175,performer,Q729,Animalia
+P1750,name day,Q14795564,point in time with respect to recurrent timeframe
+P1754,category related to list,Q4167836,Wikimedia category
+P176,manufacturer,Q1294787,artisan
+P176,manufacturer,Q12737077,occupation
+P176,manufacturer,Q16521,taxon
+P176,manufacturer,Q268592,industry
+P176,manufacturer,Q43229,organization
+P176,manufacturer,Q656720,workshop
+P176,manufacturer,Q729,Animalia
+P176,manufacturer,Q95074,character
+P177,crosses,Q618123,geographical feature
+P1779,possible creator,Q7239,organism
+P1779,possible creator,Q43229,organization
+P1779,possible creator,Q95074,character
+P178,developer,Q1639378,social system
+P178,developer,Q5,human
+P1789,chief operating officer,Q5,human
+P179,part of the series,Q104536121,level set
+P179,part of the series,Q13406463,Wikimedia list article
+P179,part of the series,Q15275719,recurring event
+P179,part of the series,Q20655472,editorial collection
+P179,part of the series,Q34442,road
+P179,part of the series,Q3511132,series
+P179,part of the series,Q431289,brand
+P179,part of the series,Q43229,organization
+P179,part of the series,Q57305,trade fair
+P179,part of the series,Q7725310,series of creative works
+P1809,choreographer,Q5,human
+P1811,list of episodes,Q13406463,Wikimedia list article
+P1817,addressee,Q14897293,fictional entity
+P1817,addressee,Q5,human
+P1817,addressee,Q43229,organization
+P183,endemic to,Q27096213,geographic entity
+P1830,owner of,Q1417728,trade name
+P1830,owner of,Q14897293,fictional entity
+P1830,owner of,Q16686448,artificial object
+P1830,owner of,Q167270,trademark
+P1830,owner of,Q2001305,television channel
+P1830,owner of,Q43229,organization
+P1830,owner of,Q4406616,concrete object
+P1830,owner of,Q6671777,structure
+P184,doctoral advisor,Q15632617,fictional human
+P184,doctoral advisor,Q5,human
+P1840,investigated by,Q43229,organization
+P1840,investigated by,Q5,human
+P185,doctoral student,Q15632617,fictional human
+P185,doctoral student,Q5,human
+P1851,partial function domain,Q217594,class
+P186,made from material,Q35758,matter
+P186,made from material,Q16521,taxon
+P186,made from material,Q223557,physical object
+P1875,represented by,Q1144447,modeling agency
+P1875,represented by,Q157031,foundation
+P1875,represented by,Q4830453,business
+P1875,represented by,Q5,human
+P1876,vessel,Q42889,vehicle
+P1877,after a work by,Q5,human
+P1877,after a work by,Q127843,pen name
+P1877,after a work by,Q16017119,collective pseudonym
+P1877,after a work by,Q43229,organization
+P1878,Vox-ATypI classification,Q58481926,typeface family
+P1880,measurement scale,Q1370617,measurement scale
+P1881,list of characters,Q13406463,Wikimedia list article
+P1884,hair color,Q1048314,human hair color
+P1885,cathedral,Q2977,cathedral
+P1885,cathedral,Q97588309,former cathedral
+P1887,vice-county,Q7925010,vice-county
+P189,location of discovery,Q27096213,geographic entity
+P189,location of discovery,Q3895768,fictional location
+P1891,signatory,Q43229,organization
+P1891,signatory,Q5,human
+P1898,lowest note,Q263478,note sign
+P19,place of birth,Q11446,ship
+P19,place of birth,Q115095765,location
+P19,place of birth,Q27096213,geographic entity
+P19,place of birth,Q3238337,mythical location
+P19,place of birth,Q3895768,fictional location
+P19,place of birth,Q6999,astronomical object
+P19,place of birth,Q811979,architectural structure
+P190,twinned administrative body,Q3895768,fictional location
+P190,twinned administrative body,Q3914,school
+P190,twinned administrative body,Q486972,human settlement
+P190,twinned administrative body,Q55488,railway station
+P190,twinned administrative body,Q56061,administrative territorial entity
+P1906,office held by head of state,Q48352,head of state
+P1906,office held by head of state,Q21451536,"fictional office, position, or title"
+P1906,office held by head of state,Q4164871,position
+P1906,office held by head of state,Q70716623,fictional head of state
+P1910,decreased expression in,Q12136,disease
+P1911,increased expression in,Q12136,disease
+P1912,gene deletion association with,Q12136,disease
+P1913,gene duplication association with,Q12136,disease
+P1914,gene insertion association with,Q12136,disease
+P1915,gene inversion association with,Q12136,disease
+P1916,gene substitution association with,Q12136,disease
+P1917,posttranslational modification association with,Q12136,disease
+P1918,altered regulation leads to,Q12136,disease
+P1923,participating team,Q43229,organization
+P1923,participating team,Q46135307,nation at sport competition
+P1924,vaccine for,Q12136,disease
+P193,main building contractor,Q43229,organization
+P193,main building contractor,Q5,human
+P194,legislative body,Q56061,administrative territorial entity
+P194,legislative body,Q10553309,legislative house
+P194,legislative body,Q11204,legislature
+P194,legislative body,Q17456916,government commission
+P194,legislative body,Q6501447,local government
+P195,collection,Q17489659,group of works
+P195,collection,Q2668072,collection
+P195,collection,Q43229,organization
+P195,collection,Q811979,architectural structure
+P1950,second family name in Spanish name,Q4116295,surname
+P196,minor planet group,Q1022867,minor planet
+P196,minor planet group,Q3235978,circumstellar disk
+P1963,properties for this type,Q18616576,Wikidata property
+P199,has organizational division,Q14623646,fictional organization
+P199,has organizational division,Q43229,organization
+P1990,species kept,Q16521,taxon
+P20,place of death,Q178561,battle
+P20,place of death,Q233324,seminary
+P20,place of death,Q27096213,geographic entity
+P20,place of death,Q3238337,mythical location
+P20,place of death,Q3895768,fictional location
+P20,place of death,Q41176,building
+P20,place of death,Q6999,astronomical object
+P200,inflows,Q15324,body of water
+P201,outflows,Q15324,body of water
+P2012,cuisine,Q1778821,cuisine
+P205,basin country,Q15239622,disputed territory
+P205,basin country,Q7275,state
+P2058,depositary,Q4164871,position
+P2058,depositary,Q43229,organization
+P206,located in or next to body of water,Q15324,body of water
+P206,located in or next to body of water,Q44782,port
+P2061,aspect ratio (W:H),Q1441762,aspect ratio
+P2079,fabrication method,Q1799072,method
+P2079,fabrication method,Q26907166,temporal entity
+P208,executive body,Q35798,executive branch
+P209,highest judicial authority,Q41487,court
+P2094,competition class,Q16510064,sporting event
+P2098,substitute/deputy/replacement of office/officeholder,Q5,human
+P2098,substitute/deputy/replacement of office/officeholder,Q4164871,position
+P2098,substitute/deputy/replacement of office/officeholder,Q43229,organization
+P210,party chief representative,Q5,human
+P2152,antiparticle,Q1621273,particle
+P2159,computes solution to,Q3435924,computational problem
+P2175,medical condition treated,Q2057971,health problem
+P2176,drug or therapy used for treatment,Q179661,medical treatment
+P2176,drug or therapy used for treatment,Q6554101,medical device
+P2184,history of topic,Q11514315,historical period
+P2184,history of topic,Q130788,chronology
+P2184,history of topic,Q186117,timeline
+P2184,history of topic,Q309,history
+P22,father,Q14897293,fictional entity
+P22,father,Q7239,organism
+P2239,first aid measures,Q133981,first aid
+P2271,Wikidata property example for properties,Q18616576,Wikidata property
+P2279,ambitus,Q189962,interval
+P2286,arterial supply,Q9655,artery
+P2288,lymphatic drainage,Q170758,lymph node
+P2289,venous drainage,Q988343,blood vessel
+P2291,charted in,Q80793969,ranked list
+P2306,property,Q18616576,Wikidata property
+P2318,debut participant,Q6256,country
+P2319,elector,Q4164871,position
+P2321,general classification of race participants,Q12973014,sports team
+P2321,general classification of race participants,Q5,human
+P2341,indigenous to,Q33829,human population
+P2341,indigenous to,Q2472587,people
+P2341,indigenous to,Q82794,region
+P2354,has list,Q13406463,Wikimedia list article
+P2358,praenomen,Q1240901,praenomen
+P2359,nomen gentilicium,Q3760158,nomen
+P2360,intended public,Q7239,organism
+P2360,intended public,Q5932254,demographic profile
+P2360,intended public,Q82794,region
+P2360,intended public,Q12737077,occupation
+P2360,intended public,Q268592,industry
+P2361,online service,Q81989119,video game distribution platform
+P2361,online service,Q11371,internet service provider
+P2361,online service,Q1641122,online service provider
+P2361,online service,Q1668024,service on Internet
+P2361,online service,Q35127,website
+P2365,cognomen,Q777342,cognomen
+P237,coat of arms,Q1079693,national emblem
+P237,coat of arms,Q14659,coat of arms
+P237,coat of arms,Q2532754,achievement
+P2375,has superpartner,Q10888573,hypothetical particle
+P2376,superpartner of,Q43116,elementary particle
+P2378,issued by,Q5,human
+P2378,issued by,Q14623646,fictional organization
+P2378,issued by,Q22222786,government program
+P2378,issued by,Q35127,website
+P2378,issued by,Q4164871,position
+P2378,issued by,Q43229,organization
+P2379,deprecated in version,Q20826013,software version
+P2388,position held by head of the organization,Q188628,board of directors
+P2388,position held by head of the organization,Q21451536,"fictional office, position, or title"
+P2388,position held by head of the organization,Q4164871,position
+P2389,organization directed by the office or position,Q1002697,periodical
+P2389,organization directed by the office or position,Q1248784,airport
+P2389,organization directed by the office or position,Q14623646,fictional organization
+P2389,organization directed by the office or position,Q161837,public service
+P2389,organization directed by the office or position,Q16510064,sporting event
+P2389,organization directed by the office or position,Q245016,military base
+P2389,organization directed by the office or position,Q43229,organization
+P2392,teaching method,Q1813494,teaching method
+P2396,image of function,Q217594,class
+P2396,image of function,Q748349,mathematical structure
+P2408,set in period,Q186081,time interval
+P2408,set in period,Q14136353,fictional occurrence
+P2408,set in period,Q18230293,fictional historical period
+P2408,set in period,Q26907166,temporal entity
+P241,military branch,Q17149090,armed organization
+P2414,substrate of,Q8047,enzyme
+P248,stated in,Q340169,communications media
+P248,stated in,Q11028,information
+P248,stated in,Q121182,information system
+P248,stated in,Q19386377,register
+P248,stated in,Q37866906,information resource
+P248,stated in,Q386724,work
+P25,mother,Q14897293,fictional entity
+P25,mother,Q7239,organism
+P2501,results,Q2995644,result
+P2505,carries thoroughfare,Q1067164,transport service itinerary
+P2505,carries thoroughfare,Q355304,watercourse
+P2505,carries thoroughfare,Q391414,architectural element
+P2505,carries thoroughfare,Q3679502,piping
+P2505,carries thoroughfare,Q811979,architectural structure
+P2505,carries thoroughfare,Q83620,thoroughfare
+P2507,corrigendum / erratum,Q1348305,erratum
+P2512,has spin-off,Q386724,work
+P2517,category for recipients of this award,Q4167836,Wikimedia category
+P2522,competition won,Q3464665,television series season
+P2522,competition won,Q18608583,recurring sporting event
+P2522,competition won,Q476300,competition
+P2541,operating area,Q20750954,fictional geographic region
+P2541,operating area,Q2221906,geographic location
+P2541,operating area,Q82794,region
+P2546,sidekick of,Q14897293,fictional entity
+P2550,recording or performance of,Q861911,oration
+P2550,recording or performance of,Q58483088,choreographic work
+P2550,recording or performance of,Q7725634,literary work
+P2551,used metre,Q192624,meter
+P2560,GPU,Q183484,graphics processing unit
+P2563,superhuman feature or ability,Q1047698,superpower
+P2567,amended by,Q740464,legal act
+P2567,amended by,Q1238720,volume
+P2567,amended by,Q1348305,erratum
+P2567,amended by,Q212971,Request for Comments
+P2568,repealed by,Q740464,legal act
+P2568,repealed by,Q820655,statute
+P2579,studied by,Q105948247,knowledge system
+P2579,studied by,Q408891,scientific law
+P2579,studied by,Q42240,research
+P2579,studied by,Q1387659,school of thought
+P2579,studied by,Q17737,theory
+P2587,has phoneme,Q202064,phone
+P2596,culture,Q11042,culture
+P2596,culture,Q2472587,people
+P263,official residence,Q41176,building
+P263,official residence,Q481289,official residence
+P2632,place of detention,Q1306981,penal military unit
+P2632,place of detention,Q177597,naval vessel
+P2632,place of detention,Q3895768,fictional location
+P2632,place of detention,Q486972,human settlement
+P2632,place of detention,Q61927259,Holocaust train journey
+P2632,place of detention,Q811979,architectural structure
+P2632,place of detention,Q820477,mine
+P2634,model,Q5,human
+P264,record label,Q18127,record label
+P264,record label,Q1137109,video game publisher
+P264,record label,Q210167,video game developer
+P2647,source of material,Q2221906,geographic location
+P2652,partnership with,Q56061,administrative territorial entity
+P2652,partnership with,Q22222786,government program
+P2652,partnership with,Q43229,organization
+P2667,corresponding template,Q11266439,Wikimedia template
+P2673,next crossing upstream,Q18984099,ferry route
+P2673,next crossing upstream,Q12280,bridge
+P2673,next crossing upstream,Q12323,dam
+P2673,next crossing upstream,Q12743,ford
+P2673,next crossing upstream,Q44377,tunnel
+P2674,next crossing downstream,Q18984099,ferry route
+P2674,next crossing downstream,Q12280,bridge
+P2674,next crossing downstream,Q12323,dam
+P2674,next crossing downstream,Q12743,ford
+P2674,next crossing downstream,Q44377,tunnel
+P2679,author of foreword,Q5,human
+P2679,author of foreword,Q95074,character
+P2680,author of afterword,Q5,human
+P2681,is recto of,Q49848,document
+P2681,is recto of,Q47461344,written work
+P2681,is recto of,Q838948,work of art
+P2682,is verso of,Q49848,document
+P2682,is verso of,Q47461344,written work
+P2682,is verso of,Q838948,work of art
+P27,country of citizenship,Q56061,administrative territorial entity
+P27,country of citizenship,Q1145276,fictional country
+P27,country of citizenship,Q15239622,disputed territory
+P27,country of citizenship,Q170156,confederation
+P27,country of citizenship,Q2775969,fictional planet
+P27,country of citizenship,Q42138,citizenship
+P27,country of citizenship,Q48349,empire
+P27,country of citizenship,Q96196009,former or current state
+P2700,protocol,Q6046311,interface standard
+P2701,file format,Q186157,filename extension
+P2701,file format,Q235557,file format
+P2702,dataset distribution,Q1172284,data set
+P2715,elected in,Q40231,public election
+P272,production company,Q43229,organization
+P2743,this zoological name is coordinate with,Q16521,taxon
+P276,location,Q27096213,geographic entity
+P276,location,Q25404640,spatial object
+P276,location,Q11033,mass media
+P276,location,Q13196193,part
+P276,location,Q1656682,event
+P276,location,Q3238337,mythical location
+P276,location,Q36133,soil
+P276,location,Q3895768,fictional location
+P276,location,Q41176,building
+P276,location,Q43229,organization
+P276,location,Q4936952,anatomical structure
+P276,location,Q6999,astronomical object
+P276,location,Q9158768,storage
+P277,programmed in,Q9143,programming language
+P277,programmed in,Q165194,application programming interface
+P277,programmed in,Q188860,software library
+P2813,house publication,Q340169,communications media
+P2817,appears in the heritage monument list,Q13406463,Wikimedia list article
+P282,writing system,Q1055909,orthographic transcription
+P282,writing system,Q43091,orthography
+P282,writing system,Q8192,writing system
+P2825,via,Q27096213,geographic entity
+P2827,flower color,Q1075,color
+P2828,corporate officer,Q5,human
+P2839,gait,Q2370000,animal gait
+P2842,place of marriage,Q618123,geographical feature
+P2851,payment types accepted,Q986008,payment system
+P2852,emergency phone number,Q694554,emergency telephone number
+P2853,electrical plug type,Q215292,AC power connector
+P286,head coach,Q5,human
+P287,designed by,Q14897293,fictional entity
+P287,designed by,Q215627,person
+P287,designed by,Q12737077,occupation
+P287,designed by,Q43229,organization
+P2872,visitor center,Q3689421,destination marketing organization
+P2875,property usage tracking category,Q4167836,Wikimedia category
+P2876,type of unit for this property,Q47574,unit of measurement
+P2876,type of unit for this property,Q8142,currency
+P2881,promoted,Q4438121,sports organization
+P2882,relegated,Q4438121,sports organization
+P291,place of publication,Q15796005,location in a fictional work
+P291,place of publication,Q220505,film festival
+P291,place of publication,Q27096213,geographic entity
+P2922,month of the year,Q5151,month
+P2936,language used,Q17376908,languoid
+P2936,language used,Q8192,writing system
+P2937,parliamentary term,Q15238777,legislative term
+P2937,parliamentary term,Q1812889,legislative session
+P2962,title of chess person,Q5093327,chess title
+P2974,habitat,Q107425,landscape
+P2974,habitat,Q16521,taxon
+P2974,habitat,Q2221906,geographic location
+P2974,habitat,Q35758,matter
+P2974,habitat,Q37813,ecosystem
+P2974,habitat,Q52105,habitat
+P2974,habitat,Q712378,organ
+P2975,has host,Q16521,taxon
+P2976,patronym or matronym for this name,Q1076664,matronymic
+P2976,patronym or matronym for this name,Q110874,patronymic
+P30,continent,Q17199338,fictional continent
+P30,continent,Q5107,continent
+P30,continent,Q855697,subcontinent
+P3005,valid in place,Q618123,geographical feature
+P3005,valid in place,Q634,planet
+P3014,laws applied,Q820655,statute
+P3015,backup or reserve team or crew,Q5,human
+P3018,located in protected area,Q473972,protected area
+P3019,railway signalling system,Q1316667,railway signalling system
+P3022,flag bearer,Q5,human
+P3025,open days,Q14795564,point in time with respect to recurrent timeframe
+P3026,closed on,Q14795564,point in time with respect to recurrent timeframe
+P3027,open period from,Q14795564,point in time with respect to recurrent timeframe
+P3028,open period to,Q14795564,point in time with respect to recurrent timeframe
+P3033,package management system,Q891055,package manager
+P3037,spatial reference system,Q22664,geographic coordinate system
+P3037,spatial reference system,Q1502887,geodetic reference system
+P3037,spatial reference system,Q161779,spatial reference system
+P306,operating system,Q9135,operating system
+P3075,official religion,Q71966963,religion or world view
+P3080,game artist,Q5,human
+P3085,qualifies for event,Q16510064,sporting event
+P3085,qualifies for event,Q476300,competition
+P3092,film crew member,Q5,human
+P3137,parent peak,Q54050,hill
+P3137,parent peak,Q8502,mountain
+P3148,repeals,Q740464,legal act
+P3148,repeals,Q820655,statute
+P3150,birthday,Q14795564,point in time with respect to recurrent timeframe
+P3173,offers view on,Q618123,geographical feature
+P3174,art director,Q5,human
+P3176,uses property,Q18616576,Wikidata property
+P3179,territory overlaps,Q82794,region
+P3179,territory overlaps,Q3241107,geographical boundary
+P3179,territory overlaps,Q3895768,fictional location
+P3189,innervated by,Q9620,nerve
+P3190,innervates,Q4936952,anatomical structure
+P3261,anatomical branch of,Q4936952,anatomical structure
+P3262,has anatomical branch,Q4936952,anatomical structure
+P3263,base,Q815741,geometric shape
+P3264,radix,Q11563,number
+P3300,musical conductor,Q5,human
+P3301,broadcast by,Q43229,organization
+P3301,broadcast by,Q2001305,television channel
+P3301,broadcast by,Q59152282,video streaming service
+P3320,board member,Q43229,organization
+P3320,board member,Q5,human
+P3323,opponent during disputation,Q5,human
+P3335,associated hazard,Q1178984,vulnerability
+P3335,associated hazard,Q1322005,natural phenomenon
+P3335,associated hazard,Q191797,aggression
+P3335,associated hazard,Q481609,damage
+P3335,associated hazard,Q86923152,risk source
+P3342,significant person,Q14897293,fictional entity
+P3342,significant person,Q215627,person
+P3349,designed to carry,Q223557,physical object
+P3356,positive diagnostic predictor for,Q12136,disease
+P3357,negative diagnostic predictor for,Q12136,disease
+P3358,positive prognostic predictor for,Q12136,disease
+P3373,sibling,Q14897293,fictional entity
+P3373,sibling,Q7239,organism
+P3374,endianness,Q339338,endianness
+P3438,vehicle normally used,Q42889,vehicle
+P3438,vehicle normally used,Q43229,organization
+P344,director of photography,Q5,human
+P344,director of photography,Q10648343,duo
+P344,director of photography,Q15632617,fictional human
+P3440,time signature,Q155234,time signature
+P3448,stepparent,Q14897293,fictional entity
+P3448,stepparent,Q5,human
+P3450,sports season of league or competition,Q13406554,sports competition
+P3450,sports season of league or competition,Q16510064,sporting event
+P3460,colonel-in-chief,Q5,human
+P3490,muscle origin,Q66394244,physical anatomical entity
+P3491,muscle insertion,Q66394244,physical anatomical entity
+P35,head of state,Q5,human
+P35,head of state,Q95074,character
+P3501,Christian liturgical rite,Q13024547,Christian liturgical rite
+P355,child organization or unit,Q14623646,fictional organization
+P355,child organization or unit,Q13226383,facility
+P355,child organization or unit,Q43229,organization
+P358,discography,Q273057,discography
+P36,capital,Q123349660,geolocatable entity
+P3602,candidacy in election,Q40231,public election
+P364,original language of film or TV show,Q17376908,languoid
+P3679,stock market index,Q223371,stock market index
+P37,official language,Q17376908,languoid
+P3709,category for value different from Wikidata,Q4167836,Wikimedia category
+P371,presenter,Q5,human
+P371,presenter,Q15632617,fictional human
+P371,presenter,Q15711870,animated character
+P371,presenter,Q15773317,television character
+P3713,category for value not in Wikidata,Q4167836,Wikimedia category
+P3716,social classification,Q187588,social class
+P3716,social classification,Q2628882,legal status
+P3719,regulated by,Q43229,organization
+P3739,inflorescence,Q156428,inflorescence
+P375,space launch vehicle,Q697175,launch vehicle
+P376,located on astronomical body,Q3132741,substellar object
+P3764,pole position,Q5,human
+P3776,inhibitor of,Q14860489,molecular function
+P3776,inhibitor of,Q8054,protein
+P38,currency,Q8142,currency
+P3803,original film format,Q759853,film format
+P3803,original film format,Q86850,film gauge
+P3815,volcano observatory,Q1778118,volcano observatory
+P3828,wears,Q15706911,fictional object
+P3828,wears,Q11460,clothing
+P3828,wears,Q1618899,fashion label
+P3828,wears,Q28823,textile
+P3828,wears,Q362200,accessory
+P3842,located in the present-day administrative territorial entity,Q56061,administrative territorial entity
+P3858,route diagram template,Q11266439,Wikimedia template
+P3876,category for alumni of educational institution,Q4167836,Wikimedia category
+P39,position held,Q3687335,Council of state
+P39,position held,Q20006438,fellowship award
+P39,position held,Q21451536,"fictional office, position, or title"
+P39,position held,Q4164871,position
+P3919,contributed to creative work,Q386724,work
+P3931,copyright holder,Q43229,organization
+P3931,copyright holder,Q5,human
+P3966,programming paradigm,Q188267,programming paradigm
+P3967,final event,Q1190554,occurrence
+P397,parent astronomical body,Q6999,astronomical object
+P3975,general secretary,Q5,human
+P398,child astronomical body,Q105000,meteor shower
+P398,child astronomical body,Q26529,space probe
+P398,child astronomical body,Q26540,artificial satellite
+P398,child astronomical body,Q6999,astronomical object
+P3985,supports programming language,Q629206,computer language
+P3989,members have occupation,Q12737077,occupation
+P399,companion of,Q6999,astronomical object
+P40,child,Q14897293,fictional entity
+P40,child,Q207174,personification
+P40,child,Q2239243,mythical creature
+P40,child,Q7239,organism
+P400,platform,Q26884850,smart speaker
+P400,platform,Q173212,computer architecture
+P400,platform,Q241317,computing platform
+P400,platform,Q2916479,shopping cart software
+P400,platform,Q6368,web browser
+P400,platform,Q9135,operating system
+P4006,overrules,Q2334719,legal case
+P4006,overrules,Q327000,court decision
+P403,mouth of the watercourse,Q15324,body of water
+P403,mouth of the watercourse,Q39816,valley
+P403,mouth of the watercourse,Q723748,confluence
+P4032,reviewed by,Q5,human
+P405,taxon author,Q5,human
+P406,soundtrack release,Q108346082,release group
+P407,language of work or name,Q17376908,languoid
+P407,language of work or name,Q2092812,language identifier
+P408,software engine,Q7397,software
+P4082,captured with,Q1751850,optical instrument
+P4099,metrically compatible typeface,Q17451,typeface
+P4100,parliamentary group,Q1393724,political faction
+P4100,parliamentary group,Q2738074,political movement
+P4100,parliamentary group,Q7278,political party
+P4100,parliamentary group,Q848197,parliamentary group
+P4101,thesis submitted to,Q31855,research institute
+P414,stock exchange,Q475000,stock market
+P414,stock exchange,Q11691,stock exchange
+P414,stock exchange,Q25401607,cryptocurrency exchange
+P4147,conjugate acid,Q36496,ion
+P4149,conjugate base,Q36496,ion
+P417,patron saint,Q10648343,duo
+P417,patron saint,Q215627,person
+P417,patron saint,Q375011,religious holiday
+P417,patron saint,Q1509831,"titles of Mary, mother of Jesus"
+P417,patron saint,Q20643955,human biblical figure
+P417,patron saint,Q2634521,title of Jesus
+P417,patron saint,Q95074,character
+P418,"has seal, badge, or sigil",Q162919,seal
+P4195,category for employees of the organization,Q4167836,Wikimedia category
+P421,located in time zone,Q12143,time zone
+P4220,order of battle,Q3757113,command hierarchy
+P4241,refine date,Q1260524,time of day
+P4241,refine date,Q26907166,temporal entity
+P425,field of this occupation,Q60733114,music tradition
+P425,field of this occupation,Q71966963,religion or world view
+P425,field of this occupation,Q1047113,field of study
+P425,field of this occupation,Q12737077,occupation
+P425,field of this occupation,Q7406919,service
+P425,field of this occupation,Q9081,knowledge
+P427,taxonomic type,Q16521,taxon
+P427,taxonomic type,Q3707858,type
+P4290,official app,Q620615,mobile app
+P4322,best sprinter classification,Q5,human
+P4329,category populated by,Q11266439,Wikimedia template
+P4345,director of archaeological fieldwork,Q5,human
+P4353,nominated by,Q5,human
+P4353,nominated by,Q4164871,position
+P4353,nominated by,Q43229,organization
+P437,distribution format,Q15078788,broadcasting
+P437,distribution format,Q340169,communications media
+P437,distribution format,Q86850,film gauge
+P437,distribution format,Q15416,television program
+P437,distribution format,Q18602566,book format
+P437,distribution format,Q682626,audio file format
+P437,distribution format,Q759853,film format
+P4379,youth wing,Q1572070,youth organization
+P4426,Y-DNA Haplogroup,Q428875,human Y-chromosome DNA haplogroup
+P4428,implementation of,Q11348,function
+P4428,implementation of,Q11266439,Wikimedia template
+P4428,implementation of,Q1151067,rule
+P4428,implementation of,Q165194,application programming interface
+P4428,implementation of,Q181156,software design pattern
+P4428,implementation of,Q2101564,specification
+P4428,implementation of,Q40056,computer program
+P4428,implementation of,Q691358,domain-specific language
+P4428,implementation of,Q8366,algorithm
+P4428,implementation of,Q9143,programming language
+P449,original broadcaster,Q141683,broadcast network
+P449,original broadcaster,Q15265344,broadcaster
+P449,original broadcaster,Q2001305,television channel
+P449,original broadcaster,Q59152282,video streaming service
+P449,original broadcaster,Q721830,subscription television
+P449,original broadcaster,Q841645,Internet television
+P450,astronaut mission,Q5916,spaceflight
+P450,astronaut mission,Q7217761,crewed spacecraft
+P451,unmarried partner,Q14897293,fictional entity
+P451,unmarried partner,Q729,Animalia
+P451,unmarried partner,Q2239243,mythical creature
+P452,industry,Q26643,commerce
+P452,industry,Q8187769,economic activity
+P452,industry,Q121359,infrastructure
+P452,industry,Q268592,industry
+P452,industry,Q2976602,industry classification scheme
+P452,industry,Q3958441,economic sector
+P453,character role,Q14897293,fictional entity
+P453,character role,Q215627,person
+P4552,mountain range,Q12099220,mountain river
+P4552,mountain range,Q182676,mountain hut
+P4552,mountain range,Q1061151,massif
+P4552,mountain range,Q10862618,mountain saddle
+P4552,mountain range,Q1174791,escarpment
+P4552,mountain range,Q133056,mountain pass
+P4552,mountain range,Q1400565,spur
+P4552,mountain range,Q1437459,non-geologically related mountain range
+P4552,mountain range,Q179049,nature reserve
+P4552,mountain range,Q1851937,tarn
+P4552,mountain range,Q19850234,hill group
+P4552,mountain range,Q207326,summit
+P4552,mountain range,Q2624046,mountain chain
+P4552,mountain range,Q361665,summit cross
+P4552,mountain range,Q39816,valley
+P4552,mountain range,Q46831,mountain range
+P4552,mountain range,Q486972,human settlement
+P4552,mountain range,Q54050,hill
+P4552,mountain range,Q8502,mountain
+P457,foundational text,Q49848,document
+P457,foundational text,Q93288,contract
+P4584,first appearance,Q386724,work
+P4586,type foundry,Q377688,type foundry
+P459,determination method or standard,Q11028,information
+P459,determination method or standard,Q1151067,rule
+P459,determination method or standard,Q1799072,method
+P459,determination method or standard,Q58778,system
+P4608,scenographer,Q5,human
+P4614,drainage basin,Q166620,drainage basin
+P462,color,Q1075,color
+P462,color,Q114177705,colour combination
+P4622,trophy awarded,Q488383,object
+P463,member of,Q16970,church building
+P463,member of,Q264965,subculture
+P463,member of,Q49773,social movement
+P463,member of,Q14623646,fictional organization
+P463,member of,Q16887380,group
+P463,member of,Q1900326,network
+P463,member of,Q43229,organization
+P4634,premiere type,Q204854,première
+P4646,representation of,Q116476516,dramatic work
+P4646,representation of,Q43099500,performing arts production
+P4647,location of first performance,Q132241,festival
+P4647,location of first performance,Q27968055,recurring event edition
+P4647,location of first performance,Q43229,organization
+P4647,location of first performance,Q464980,exhibition
+P4647,location of first performance,Q618123,geographical feature
+P466,occupant,Q14897293,fictional entity
+P466,occupant,Q5,human
+P466,occupant,Q13226383,facility
+P466,occupant,Q15893266,former entity
+P466,occupant,Q2668072,collection
+P466,occupant,Q4164871,position
+P466,occupant,Q43229,organization
+P466,occupant,Q476300,competition
+P4661,reservoir created,Q3215290,artificial lake
+P467,legislated by,Q5,human
+P467,legislated by,Q10553309,legislative house
+P467,legislated by,Q11204,legislature
+P467,legislated by,Q15238777,legislative term
+P467,legislated by,Q1812889,legislative session
+P467,legislated by,Q267995,constitutional convention
+P467,legislated by,Q327333,government agency
+P467,legislated by,Q4358176,council
+P467,legislated by,Q640506,cabinet
+P468,dan/kyu rank,Q373498,dan
+P469,lake on watercourse,Q15324,body of water
+P469,lake on watercourse,Q15709969,fictional lake
+P47,shares border with,Q8928,constellation
+P47,shares border with,Q3895768,fictional location
+P47,shares border with,Q618123,geographical feature
+P4743,animal breed,Q1404066,cat coat genetics
+P4745,is proceedings from,Q1656682,event
+P4788,storage device,Q193395,recording medium
+P479,input device,Q864114,input device
+P4791,commanded by,Q5,human
+P4791,commanded by,Q4164871,position
+P4792,dam,Q12323,dam
+P4805,make-up artist,Q5,human
+P4809,sets environment variable,Q400857,environment variable
+P4810,reads environment variable,Q400857,environment variable
+P483,recorded at studio or venue,Q19711353,public event
+P483,recorded at studio or venue,Q2385804,educational institution
+P483,recorded at studio or venue,Q1049757,multi-purpose sports venue
+P483,recorded at studio or venue,Q14350,radio station
+P483,recorded at studio or venue,Q1555508,radio program
+P483,recorded at studio or venue,Q17350442,venue
+P483,recorded at studio or venue,Q22698,park
+P483,recorded at studio or venue,Q288514,fair
+P483,recorded at studio or venue,Q40357,prison
+P483,recorded at studio or venue,Q41176,building
+P483,recorded at studio or venue,Q41582469,music festival edition
+P483,recorded at studio or venue,Q483242,laboratory
+P483,recorded at studio or venue,Q511355,television studio
+P483,recorded at studio or venue,Q641226,arena
+P483,recorded at studio or venue,Q699405,dwelling
+P483,recorded at studio or venue,Q7075,library
+P483,recorded at studio or venue,Q746369,recording studio
+P485,archives at,Q5,human
+P485,archives at,Q178706,institution
+P485,archives at,Q43229,organization
+P4873,isoschizomer,Q219715,restriction enzyme
+P4875,neoschizomer,Q219715,restriction enzyme
+P488,chairperson,Q215627,person
+P488,chairperson,Q43229,organization
+P488,chairperson,Q95074,character
+P4884,court,Q1412224,tribunal
+P489,currency sign,Q308229,currency sign
+P4908,season,Q3464665,television series season
+P4913,dialect of,Q34770,language
+P4915,isocaudomer,Q219715,restriction enzyme
+P4934,calculated from,Q246672,mathematical object
+P495,country of origin,Q1145276,fictional country
+P495,country of origin,Q4120211,regional organization
+P495,country of origin,Q7840353,federally recognized Native American tribe in the United States
+P495,country of origin,Q82794,region
+P4958,classification of the best at metas volantes,Q5,human
+P4968,relevant qualification,Q16023913,professional certification
+P4968,relevant qualification,Q189533,academic degree
+P4988,test method,Q46857,scientific method
+P50,author,Q107307291,artificially intelligent entity
+P50,author,Q215627,person
+P50,author,Q43229,organization
+P50,author,Q61002,pseudonym
+P50,author,Q95074,character
+P500,exclave of,Q15642541,human-geographic territorial entity
+P5004,in opposition to,Q7257,ideology
+P5004,in opposition to,Q1151067,rule
+P5004,in opposition to,Q1190554,occurrence
+P5004,in opposition to,Q121359,infrastructure
+P5004,in opposition to,Q1639378,social system
+P5004,in opposition to,Q5,human
+P5004,in opposition to,Q900406,reform
+P5008,on focus list of Wikimedia project,Q16695773,WikiProject
+P5009,complies with,Q65938634,quality control method
+P5009,complies with,Q101072,definition
+P5009,complies with,Q1151067,rule
+P5009,complies with,Q2101564,specification
+P5009,complies with,Q212971,Request for Comments
+P501,enclave within,Q56061,administrative territorial entity
+P5021,assessment,Q1379672,evaluation
+P5021,assessment,Q27318,test
+P5023,activity policy in this place,Q51728742,activity policy
+P5024,choral conductor,Q5,human
+P5025,gens,Q899409,gens
+P5026,lighting designer,Q5,human
+P5028,sound designer,Q5,human
+P5030,talk show guest,Q5,human
+P504,shipping port,Q27096213,geographic entity
+P5040,GHS hazard pictogram,Q19360817,GHS hazard pictogram
+P505,general manager,Q215627,person
+P5052,supervisory board member,Q5,human
+P5053,fastest lap,Q5,human
+P5054,member of cabinet,Q640506,cabinet
+P5056,patronym or matronym,Q1076664,matronymic
+P5056,patronym or matronym,Q110874,patronymic
+P5059,modified version of,Q386724,work
+P5072,presented in,Q1656682,event
+P509,cause of death,Q1520311,violent crime
+P509,cause of death,Q1931388,cause of death
+P509,cause of death,Q61915880,obsolete medical term
+P509,cause of death,Q124490,violence
+P509,cause of death,Q15169167,execution method
+P509,cause of death,Q171558,accident
+P509,cause of death,Q2057971,health problem
+P509,cause of death,Q2485083,suicide method
+P5095,fault,Q875399,boundary
+P5095,fault,Q47089,fault
+P5095,fault,Q48999000,tectonic block
+P5096,member of the crew of,Q206021,flight
+P5096,member of the crew of,Q42889,vehicle
+P511,honorific prefix,Q1326966,honorific
+P511,honorific prefix,Q3320743,title of honor
+P511,honorific prefix,Q5767753,style
+P512,academic degree,Q189533,academic degree
+P5125,Wikimedia outline,Q26884324,Wikimedia outline article
+P5131,possible medical findings,Q639907,medical finding
+P5132,suggests the existence of,Q7189713,physiological condition
+P5133,has evaluation,Q639907,medical finding
+P5134,evaluation of,Q2996394,biological process
+P5134,evaluation of,Q835153,physical examination
+P5138,season of club or team,Q12973014,sports team
+P5138,season of club or team,Q847017,sports club
+P516,powered by,Q2583685,propulsion
+P516,powered by,Q1753139,electric power source
+P516,powered by,Q44167,engine
+P516,powered by,Q80877,nuclear reactor
+P517,interaction,Q104934,fundamental interaction
+P5196,output device,Q778637,output device
+P520,armament,Q39546,physical tool
+P5202,adapted by,Q5,human
+P5203,topographic map,Q216526,topographic map
+P521,scheduled service destination,Q62447,aerodrome
+P522,type of orbit,Q4130,orbit
+P5236,prime factor,Q49008,prime number
+P5249,sports competition competed at,Q13406554,sports competition
+P5278,surname for other gender,Q4116295,surname
+P5280,radical,Q849778,Chinese character radical
+P53,family,Q8436,family
+P530,diplomatic relation,Q1063239,polity
+P530,diplomatic relation,Q1335818,supranational union
+P530,diplomatic relation,Q3024240,historical country
+P530,diplomatic relation,Q6256,country
+P5304,type locality (biology),Q2221906,geographic location
+P5304,type locality (biology),Q3694119,stratigraphic unit
+P531,diplomatic mission sent,Q213283,diplomatic mission
+P531,diplomatic mission sent,Q4164871,position
+P5317,jockey,Q5,human
+P532,port of registry,Q44782,port
+P532,port of registry,Q486972,human settlement
+P5323,attested in,Q386724,work
+P5323,attested in,Q49848,document
+P534,streak color,Q1075,color
+P5353,school district,Q149621,district
+P5353,school district,Q3914,school
+P5389,permanent resident of,Q56061,administrative territorial entity
+P54,member of sports team,Q115898316,department of a sports club
+P54,member of sports team,Q12973014,sports team
+P54,member of sports team,Q25178247,professional wrestling stable
+P54,member of sports team,Q847017,sports club
+P54,member of sports team,Q989470,clan
+P5401,auxiliary verb,Q465800,auxiliary verb
+P541,office contested,Q4164871,position
+P542,officially opened by,Q5,human
+P543,oath made by,Q5,human
+P5444,model year,Q3186692,calendar year
+P545,torch lit by,Q5,human
+P5460,grants,Q618779,award
+P5475,CJKV variant character,Q849778,Chinese character radical
+P550,chivalric order,Q2003221,order of chivalry
+P551,residence,Q18247357,group of structures or buildings
+P551,residence,Q19860854,destroyed building or structure
+P551,residence,Q2221906,geographic location
+P551,residence,Q27686,hotel
+P551,residence,Q3238337,mythical location
+P551,residence,Q3895768,fictional location
+P551,residence,Q41176,building
+P551,residence,Q699405,dwelling
+P551,residence,Q82794,region
+P551,residence,Q837142,nursing home
+P553,website account on,Q81989119,video game distribution platform
+P553,website account on,Q1639780,regulatory agency
+P553,website account on,Q19967801,online service
+P553,website account on,Q210980,virtual community
+P553,website account on,Q287198,online chat
+P553,website account on,Q340169,communications media
+P5572,expressed in,Q3505845,state
+P5572,expressed in,Q4936952,anatomical structure
+P559,terminus,Q44782,port
+P559,terminus,Q178512,public transport
+P559,terminus,Q27096213,geographic entity
+P560,direction,Q2151613,relative direction
+P5606,class of station,Q55488,railway station
+P562,central bank/issuer,Q43229,organization
+P562,central bank/issuer,Q5,human
+P5658,railway traffic side,Q14565197,body relative direction
+P57,director,Q14073567,sibling duo
+P57,director,Q5,human
+P5707,samples from work,Q2431196,audiovisual work
+P5707,samples from work,Q3302947,audio recording
+P5753,ideographic description sequence,Q1689024,CJKV stroke
+P5769,editor-in-chief,Q5,human
+P5769,editor-in-chief,Q43229,organization
+P58,screenwriter,Q2700595,dyad
+P58,screenwriter,Q16017119,collective pseudonym
+P58,screenwriter,Q5,human
+P5800,narrative role,Q10428845,narrative technique
+P5800,narrative role,Q6647660,literary element
+P5804,has program committee member,Q5,human
+P5817,state of use,Q56557118,use status
+P5832,political coalition,Q6138528,political coalition
+P5873,place of devotion,Q2221906,geographic location
+P5886,mode of derivation,Q754984,sound change
+P59,constellation,Q8928,constellation
+P5940,plot expanded in,Q386724,work
+P598,commander of (DEPRECATED),Q17149090,armed organization
+P598,commander of (DEPRECATED),Q18691599,military installation
+P598,commander of (DEPRECATED),Q42889,vehicle
+P598,commander of (DEPRECATED),Q645883,military operation
+P598,commander of (DEPRECATED),Q939616,secret service
+P5995,kit supplier,Q4830453,business
+P6,head of government,Q5,human
+P6,head of government,Q95074,character
+P6022,"expression, gesture or body pose",Q8514257,posture
+P607,participated in conflict,Q370330,convoy
+P607,participated in conflict,Q14136353,fictional occurrence
+P607,participated in conflict,Q180684,conflict
+P607,participated in conflict,Q24336068,mythical war
+P607,participated in conflict,Q3199915,massacre
+P607,participated in conflict,Q6056746,campaign
+P607,participated in conflict,Q645883,military operation
+P608,exhibition history,Q1656682,event
+P6087,coach of sports team,Q4438121,sports organization
+P609,terminus location,Q6671777,structure
+P609,terminus location,Q486972,human settlement
+P609,terminus location,Q56061,administrative territorial entity
+P61,discoverer or inventor,Q6502154,exploration
+P61,discoverer or inventor,Q13226383,facility
+P61,discoverer or inventor,Q14897293,fictional entity
+P61,discoverer or inventor,Q43229,organization
+P61,discoverer or inventor,Q5,human
+P61,discoverer or inventor,Q7397,software
+P610,highest point,Q3895768,fictional location
+P610,highest point,Q207326,summit
+P610,highest point,Q2221906,geographic location
+P6104,maintained by WikiProject,Q16695773,WikiProject
+P611,religious order,Q474717,religious military order
+P611,religious order,Q2061186,religious order
+P611,religious order,Q225446,institute of consecrated life
+P6112,category for members of a team,Q4167836,Wikimedia category
+P6116,chord progression,Q170439,chord
+P612,mother house,Q44613,monastery
+P6149,running mate,Q5,human
+P6153,research site,Q121359,infrastructure
+P6153,research site,Q43229,organization
+P6166,quotes work,Q386724,work
+P618,source of energy,Q79529,chemical substance
+P618,source of energy,Q1522115,energy source
+P6191,language style,Q182545,stylistic device
+P6191,language style,Q3329375,language variety
+P6193,ratified by,Q5,human
+P6193,ratified by,Q1335818,supranational union
+P6193,ratified by,Q6256,country
+P6193,ratified by,Q7275,state
+P6237,real estate developer,Q43229,organization
+P6237,real estate developer,Q5,human
+P624,guidance system,Q1707071,guidance system
+P6241,collection creator,Q5,human
+P6241,collection creator,Q43229,organization
+P6243,digital representation of,Q223557,physical object
+P6275,copyright representative,Q1047437,copyright collective
+P6275,copyright representative,Q3152824,cultural institution
+P629,edition or translation of,Q386724,work
+P6338,colorist,Q5,human
+P634,team captain,Q5,human
+P6364,official color,Q376431,color term
+P6364,official color,Q1075,color
+P6364,official color,Q114177705,colour combination
+P6365,member category,Q4167836,Wikimedia category
+P6379,has works in the collection,Q15090615,arts venue
+P6379,has works in the collection,Q166118,archives
+P6379,has works in the collection,Q2668072,collection
+P6379,has works in the collection,Q33506,museum
+P6379,has works in the collection,Q464980,exhibition
+P6379,has works in the collection,Q5774403,historical society
+P6379,has works in the collection,Q7075,library
+P641,sport,Q349,sport
+P641,sport,Q11410,game
+P641,sport,Q11417,martial arts
+P6437,day of regular release,Q14795564,point in time with respect to recurrent timeframe
+P647,drafted by,Q4438121,sports organization
+P65,site of astronomical discovery,Q1254933,astronomical observatory
+P6533,type of front suspension,Q272870,suspension
+P6534,type of rear suspension,Q272870,suspension
+P654,direction relative to location,Q2151613,relative direction
+P655,translator,Q1639378,social system
+P655,translator,Q5,human
+P6569,taxon especially protected in area,Q16521,taxon
+P658,tracklist,Q7302866,audio track
+P66,ancestral home,Q618123,geographical feature
+P6606,study or design for,Q838948,work of art
+P664,organizer,Q5,human
+P664,organizer,Q14623646,fictional organization
+P664,organizer,Q1656682,event
+P664,organizer,Q30017383,fictional organism
+P664,organizer,Q4164871,position
+P664,organizer,Q43229,organization
+P664,organizer,Q49773,social movement
+P6684,first attested from,Q17537576,creative work
+P6684,first attested from,Q47461344,written work
+P669,located on street,Q22667,railway
+P669,located on street,Q174782,square
+P669,located on street,Q2126794,cycling network
+P669,located on street,Q83620,thoroughfare
+P6718,music video,Q193977,music video
+P674,characters,Q14897293,fictional entity
+P674,characters,Q1913135,puppet
+P674,characters,Q20830276,group of mythical characters
+P674,characters,Q215627,person
+P674,characters,Q2239243,mythical creature
+P6758,supported sports team,Q12973014,sports team
+P6758,supported sports team,Q847017,sports club
+P676,lyricist,Q12405827,biblical character
+P676,lyricist,Q215380,musical group
+P676,lyricist,Q5,human
+P6803,taxon found at location,Q16521,taxon
+P6819,calligrapher,Q14897293,fictional entity
+P6819,calligrapher,Q215627,person
+P6824,replacement property,Q18616576,Wikidata property
+P6840,student organization of,Q2385804,educational institution
+P6872,has written for,Q49848,document
+P6872,has written for,Q2001305,television channel
+P6872,has written for,Q192283,news agency
+P6872,has written for,Q7243180,primary ticket outlet
+P6884,target muscle,Q7365,muscle
+P6885,historical region,Q1620908,historical region
+P6886,writing language,Q17376908,languoid
+P6887,match interval,Q62521854,match interval
+P6889,microarchitecture,Q259864,microarchitecture
+P689,afflicts,Q16521,taxon
+P69,educated at,Q15893266,former entity
+P69,educated at,Q16917,hospital
+P69,educated at,Q20860083,educational facility
+P69,educated at,Q2385804,educational institution
+P69,educated at,Q44613,monastery
+P69,educated at,Q504703,seminar
+P690,space group,Q899033,space group
+P6902,era name,Q256408,era name
+P694,replaced synonym (for nom. nov.),Q16521,taxon
+P694,replaced synonym (for nom. nov.),Q17134993,validly published name
+P6942,animator,Q5,human
+P6948,video system,Q241317,computing platform
+P6948,video system,Q6368,web browser
+P697,ex taxon author,Q5,human
+P6977,review of,Q386724,work
+P6978,Scandinavian middle family name,Q4116295,surname
+P7010,imprimatur granted by,Q215627,person
+P7010,imprimatur granted by,Q43229,organization
+P702,encoded by,Q7187,gene
+P703,found in taxon,Q16521,taxon
+P7047,enemy,Q14897293,fictional entity
+P706,located in/on physical feature,Q27096213,geographic entity
+P706,located in/on physical feature,Q3238337,mythical location
+P706,located in/on physical feature,Q3895768,fictional location
+P706,located in/on physical feature,Q9346860,geological structure
+P7078,typing discipline,Q865760,type system
+P708,diocese,Q1431554,apostolic administration
+P708,diocese,Q285181,eparchy
+P708,diocese,Q384003,apostolic prefecture
+P708,diocese,Q620225,apostolic vicariate
+P708,diocese,Q665487,diocese
+P7084,related category,Q4167836,Wikimedia category
+P710,participant,Q7239,organism
+P710,participant,Q14897293,fictional entity
+P710,participant,Q24334685,mythical entity
+P7108,location of the point of view,Q618123,geographical feature
+P7153,significant place,Q41176,building
+P7153,significant place,Q2434238,heritage
+P7153,significant place,Q3895768,fictional location
+P7153,significant place,Q618123,geographical feature
+P7160,manner of inhumane treatment,Q132781,torture
+P7162,cases consolidated,Q2334719,legal case
+P7163,typically sells,Q2424752,product
+P7169,substitute director/manager,Q5,human
+P7174,school class,Q577,year
+P720,asteroid spectral type,Q1750705,asteroid spectral type
+P7209,ordeal by,Q40745,trial by ordeal
+P725,voice actor,Q5,human
+P725,voice actor,Q61002,pseudonym
+P7252,degree of difficulty,Q11659512,degree of difficulty
+P7253,color produced,Q1075,color
+P726,candidate,Q5,human
+P726,candidate,Q7210356,political organization
+P7309,has climbing route,Q83620,thoroughfare
+P734,family name,Q4116295,surname
+P734,family name,Q66475447,family name affix
+P735,given name,Q122067883,given name component
+P735,given name,Q202444,given name
+P735,given name,Q49614,nickname
+P736,cover art by,Q43229,organization
+P736,cover art by,Q5,human
+P7376,worn by,Q7239,organism
+P7376,worn by,Q14897293,fictional entity
+P7376,worn by,Q4164871,position
+P7377,infix,Q62155,affix
+P739,ammunition,Q165363,torpedo
+P739,ammunition,Q185785,ammunition
+P744,asteroid family,Q249083,asteroid family
+P7469,orientation,Q2151613,relative direction
+P747,has edition or translation,Q386724,work
+P7479,key col,Q133056,mountain pass
+P7479,key col,Q15324,body of water
+P7479,key col,Q16887036,gap
+P748,appointed by,Q386724,work
+P748,appointed by,Q4164871,position
+P748,appointed by,Q43229,organization
+P748,appointed by,Q5,human
+P749,parent organization or unit,Q14623646,fictional organization
+P749,parent organization or unit,Q431289,brand
+P749,parent organization or unit,Q43229,organization
+P750,distributed by,Q19307174,digital distribution platform
+P750,distributed by,Q72588,content delivery network
+P750,distributed by,Q1002697,periodical
+P750,distributed by,Q18534542,restaurant chain
+P750,distributed by,Q2085381,publishing house
+P750,distributed by,Q35127,website
+P7501,audio system,Q80831,integrated circuit
+P7514,landscape architect,Q43229,organization
+P7514,landscape architect,Q5,human
+P7528,statement or content of identifier is regarded as spoiler for,Q17537576,creative work
+P756,removed feature,Q1049294,emoji
+P7561,category for the interior of the item,Q4167836,Wikimedia category
+P7604,supervised by,Q15632617,fictional human
+P7604,supervised by,Q4164871,position
+P7604,supervised by,Q5,human
+P7643,covered period,Q11514315,historical period
+P767,contributor to the creative work or subject,Q43229,organization
+P767,contributor to the creative work or subject,Q5,human
+P768,electoral district,Q15284,municipality
+P768,electoral district,Q192611,electoral unit
+P770,cause of destruction,Q180684,conflict
+P770,cause of destruction,Q1190554,occurrence
+P770,cause of destruction,Q1322005,natural phenomenon
+P770,cause of destruction,Q42889,vehicle
+P7719,generalization of,Q11348,function
+P7719,generalization of,Q108163,proposition
+P7719,generalization of,Q24034552,mathematical concept
+P7719,generalization of,Q8366,algorithm
+P7779,military unit,Q17149090,armed organization
+P7779,military unit,Q177597,naval vessel
+P7779,military unit,Q18691599,military installation
+P7781,exonerated of,Q1456832,violation of law
+P7782,category for ship name,Q4167836,Wikimedia category
+P780,symptoms and signs,Q7189713,physiological condition
+P7861,category for files created with program,Q4167836,Wikimedia category
+P7867,category for maps or plans,Q4167836,Wikimedia category
+P7888,merged into,Q15642541,human-geographic territorial entity
+P7888,merged into,Q1002697,periodical
+P7888,merged into,Q121359,infrastructure
+P7888,merged into,Q14623646,fictional organization
+P7888,merged into,Q15900616,event sequence
+P7888,merged into,Q2668072,collection
+P7888,merged into,Q35127,website
+P7888,merged into,Q43229,organization
+P790,approved by,Q846882,sources of law
+P790,approved by,Q43109,referendum
+P790,approved by,Q5,human
+P790,approved by,Q56061,administrative territorial entity
+P790,approved by,Q1752346,assembly
+P790,approved by,Q484652,international organization
+P790,approved by,Q2761147,meeting
+P790,approved by,Q327333,government agency
+P790,approved by,Q4164871,position
+P7903,gained territory from,Q4835091,territory
+P7904,gave up territory to,Q4835091,territory
+P793,significant event,Q122397289,imaginary event
+P793,significant event,Q4071928,cyberattack
+P793,significant event,Q56557118,use status
+P793,significant event,Q751989,astronomical phenomenon
+P793,significant event,Q16513426,decision
+P793,significant event,Q1656682,event
+P793,significant event,Q171558,accident
+P793,significant event,Q58415929,spatio-temporal entity
+P7936,business model,Q815823,business model
+P7937,form of creative work,Q571,book
+P7938,associated electoral district,Q192611,electoral unit
+P795,located on linear feature,Q34442,road
+P795,located on linear feature,Q355304,watercourse
+P795,located on linear feature,Q628179,trail
+P795,located on linear feature,Q728937,railway line
+P795,located on linear feature,Q924286,transport network
+P7959,historic county,Q179872,county of Ireland
+P7959,historic county,Q67376938,historic county of the United Kingdom
+P800,notable work,Q190084,hoax
+P800,notable work,Q101965,experiment
+P800,notable work,Q1151067,rule
+P800,notable work,Q11862829,academic discipline
+P800,notable work,Q12772819,discovery
+P800,notable work,Q1293220,physical phenomenon
+P800,notable work,Q131841,idea
+P800,notable work,Q151885,concept
+P800,notable work,Q1656682,event
+P800,notable work,Q1799072,method
+P800,notable work,Q193946,scientific model
+P800,notable work,Q2424752,product
+P800,notable work,Q246672,mathematical object
+P800,notable work,Q386724,work
+P800,notable work,Q43229,organization
+P800,notable work,Q618779,award
+P800,notable work,Q811979,architectural structure
+P800,notable work,Q9081,knowledge
+P800,notable work,Q95074,character
+P8001,endorsed by,Q14897293,fictional entity
+P8001,endorsed by,Q5,human
+P8001,endorsed by,Q43229,organization
+P8004,ordered by,Q5,human
+P8004,ordered by,Q43229,organization
+P802,student,Q14897293,fictional entity
+P802,student,Q5,human
+P803,professorship,Q486983,academic rank
+P8031,perpetrator,Q215627,person
+P8031,perpetrator,Q14623646,fictional organization
+P8031,perpetrator,Q30017383,fictional organism
+P8031,perpetrator,Q43229,organization
+P8032,victim(s),Q26401003,individual animal
+P8032,victim(s),Q122192387,imaginary human
+P8032,victim(s),Q30017383,fictional organism
+P8047,country of registry,Q56061,administrative territorial entity
+P807,separated from,Q56061,administrative territorial entity
+P807,separated from,Q27096235,artificial geographic entity
+P807,separated from,Q43229,organization
+P81,connecting line,Q728937,railway line
+P811,academic minor,Q105948247,knowledge system
+P811,academic minor,Q20162172,human language
+P8115,eligible recipient,Q43229,organization
+P812,academic major,Q105948247,knowledge system
+P812,academic major,Q8434,education
+P812,academic major,Q17376908,languoid
+P8127,tournament format,Q61685689,tournament system
+P8131,dialect of computer language,Q629206,computer language
+P8138,located in the statistical territorial entity,Q123705,neighborhood
+P8138,located in the statistical territorial entity,Q15042037,statistical territorial entity
+P816,decays to,Q43116,elementary particle
+P8196,voting system,Q182985,electoral system
+P822,mascot,Q12737077,occupation
+P822,mascot,Q1322005,natural phenomenon
+P822,mascot,Q14897293,fictional entity
+P822,mascot,Q16521,taxon
+P822,mascot,Q18670161,mascot
+P822,mascot,Q3139104,cultural icon
+P823,speaker,Q5,human
+P823,speaker,Q4164871,position
+P8258,field of training,Q1047113,field of study
+P826,tonality,Q731978,mode
+P8289,parish church(es),Q16970,church building
+P831,parent club,Q115898316,department of a sports club
+P831,parent club,Q12973014,sports team
+P831,parent club,Q847017,sports club
+P832,public holiday,Q1445650,holiday
+P8324,funder,Q8436,family
+P8324,funder,Q1663557,initiative
+P8324,funder,Q212468,appropriation
+P8324,funder,Q372353,research funding
+P8329,principal investigator,Q5,human
+P8331,strike tone,Q263478,note sign
+P8339,entry receptor,Q8054,protein
+P8345,media franchise,Q15991290,professional sports league
+P8345,media franchise,Q196600,media franchise
+P837,day in year for periodic occurrence,Q14795564,point in time with respect to recurrent timeframe
+P8371,"references work, tradition or theory",Q117850,doctrine
+P8371,"references work, tradition or theory",Q17537576,creative work
+P8371,"references work, tradition or theory",Q17737,theory
+P8371,"references work, tradition or theory",Q82821,tradition
+P84,architect,Q5,human
+P84,architect,Q4830453,business
+P84,architect,Q783794,company
+P840,narrative location,Q6999,astronomical object
+P840,narrative location,Q1656682,event
+P840,narrative location,Q3238337,mythical location
+P840,narrative location,Q3895768,fictional location
+P840,narrative location,Q47306921,fictional parallel universe
+P840,narrative location,Q618123,geographical feature
+P8402,open data portal,Q8513,database
+P8403,theorized by,Q43229,organization
+P8403,theorized by,Q5,human
+P8411,set in environment,Q107,space
+P8411,set in environment,Q15710813,physical structure
+P8411,set in environment,Q2221906,geographic location
+P8411,set in environment,Q2920644,environment
+P8411,set in environment,Q30126005,hypothetical scientific object
+P8411,set in environment,Q3238337,mythical location
+P8411,set in environment,Q3895768,fictional location
+P8411,set in environment,Q42889,vehicle
+P8411,set in environment,Q4830453,business
+P8411,set in environment,Q559618,fictional universe
+P8411,set in environment,Q811430,fixed construction
+P8411,set in environment,Q82794,region
+P8413,academic appointment,Q43229,organization
+P8464,content partnership category,Q4167836,Wikimedia category
+P85,anthem,Q207628,composed musical work
+P8500,Vietnamese middle name,Q202444,given name
+P8503,heraldic attitude,Q1243409,heraldic attitude
+P8535,tala,Q1896571,tala
+P8536,raga,Q216926,raga
+P8571,external auditor,Q43229,organization
+P8571,external auditor,Q5,human
+P859,sponsor,Q431289,brand
+P859,sponsor,Q43229,organization
+P859,sponsor,Q5,human
+P8596,category for the exterior of the item,Q4167836,Wikimedia category
+P86,composer,Q215380,musical group
+P86,composer,Q5,human
+P8626,opening time,Q1260524,time of day
+P8627,closing time,Q1260524,time of day
+P8646,expansion of,Q3244175,tabletop game
+P8646,expansion of,Q7889,video game
+P8670,character designer,Q5,human
+P8670,character designer,Q95074,character
+P868,foods traditionally associated,Q1778821,cuisine
+P868,foods traditionally associated,Q2095,food
+P8693,fandom,Q497893,literary society
+P8693,fandom,Q773944,fandom
+P87,librettist,Q5,human
+P870,instrumentation,Q34379,musical instrument
+P8701,has census,Q39825,census
+P8702,parallel street,Q83620,thoroughfare
+P8706,ritual object,Q223557,physical object
+P872,printed by,Q43229,organization
+P872,printed by,Q5,human
+P8744,economy of topic,Q100773131,regional economy
+P8744,economy of topic,Q6456916,national economy
+P8745,check-in time,Q1260524,time of day
+P8746,check-out time,Q1260524,time of day
+P8764,port calls,Q44782,port
+P8786,dedicated heritage entity,Q43229,organization
+P8791,digitised by,Q43229,organization
+P8791,digitised by,Q5,human
+P88,commissioned by,Q12076836,administrative territorial entity of a single country
+P88,commissioned by,Q14623646,fictional organization
+P88,commissioned by,Q41298,magazine
+P88,commissioned by,Q43229,organization
+P88,commissioned by,Q5,human
+P88,commissioned by,Q464980,exhibition
+P88,commissioned by,Q4801521,arts festival
+P880,CPU,Q175805,semiconductor device
+P881,type of variable star,Q6243,variable star
+P8822,epithet,Q207869,epithet
+P8839,hairstyle / hairlength,Q321703,premise
+P885,origin of the watercourse,Q123349660,geolocatable entity
+P885,origin of the watercourse,Q3895768,fictional location
+P8852,facial hair,Q1847641,human facial hair
+P8852,facial hair,Q321703,premise
+P8864,identity element,Q246672,mathematical object
+P8865,mathematical inverse,Q246672,mathematical object
+P8866,has operation,Q3884033,mathematical operation
+P887,based on heuristic,Q1156402,reasoning
+P887,based on heuristic,Q8366,algorithm
+P8872,has marker,Q7187,gene
+P8872,has marker,Q8054,protein
+P8875,indexed in bibliographic review,Q1789476,bibliographic database
+P8875,indexed in bibliographic review,Q2033233,bibliographic index
+P8882,complementary property,Q18616576,Wikidata property
+P8927,kunya,Q1285470,kunya
+P8933,category for the view from the item,Q4167836,Wikimedia category
+P8938,artistic director,Q5,human
+P8952,inappropriate property for this type,Q18616576,Wikidata property
+P8989,category for the view of the item,Q4167836,Wikimedia category
+P9030,solution to,Q976981,formula
+P9030,solution to,Q1166625,mathematical problem
+P9047,archaeological site of,Q4406616,concrete object
+P9047,archaeological site of,Q486972,human settlement
+P9059,subdivision of this unit,Q47574,unit of measurement
+P9071,character type,Q1062990,character class
+P9071,character type,Q844569,identity
+P9072,derived from organism type,Q16521,taxon
+P9073,applicable 'stated in' value,Q35127,website
+P9073,applicable 'stated in' value,Q386724,work
+P91,sexual orientation,Q1165905,sexual identity
+P910,topic's main category,Q4167836,Wikimedia category
+P9126,Commons media contributed by,Q43229,organization
+P913,notation,Q3241972,character
+P9139,first family name in Portuguese name,Q4116295,surname
+P915,filming location,Q352867,theatrical scenery
+P915,filming location,Q11446,ship
+P915,filming location,Q121359,infrastructure
+P915,filming location,Q16463,lyceum
+P915,filming location,Q1656682,event
+P915,filming location,Q3238337,mythical location
+P915,filming location,Q38723,higher education institution
+P915,filming location,Q618123,geographical feature
+P9161,thesis committee member,Q5,human
+P9191,letterer,Q5,human
+P92,main regulatory text,Q846882,sources of law
+P92,main regulatory text,Q179461,religious text
+P92,main regulatory text,Q2673092,nomenclature Code
+P92,main regulatory text,Q3150005,legal instrument
+P92,main regulatory text,Q820655,statute
+P9215,set during recurring event,Q11514315,historical period
+P9215,set during recurring event,Q1260524,time of day
+P9215,set during recurring event,Q14795564,point in time with respect to recurrent timeframe
+P9215,set during recurring event,Q15275719,recurring event
+P9215,set during recurring event,Q573,day
+P922,magnetic ordering,Q15706549,magnetic ordering
+P923,medical examination,Q177719,medical diagnosis
+P923,medical examination,Q2671652,medical test
+P9237,reissue of,Q108346082,release group
+P9239,affiliated worker organisation,Q178790,labor union
+P9241,demographics of topic,Q23983664,demographics of country or region
+P9260,music transcriber,Q5,human
+P9275,inverse agonist of,Q8054,protein
+P9302,script style,Q118872183,script style
+P9302,script style,Q17451,typeface
+P931,place served by transport hub,Q2169973,service provider
+P931,place served by transport hub,Q82794,region
+P9325,Gedong Kirtya Classification,Q1641020,palm-leaf manuscript
+P937,work location,Q3895768,fictional location
+P937,work location,Q43229,organization
+P937,work location,Q1229765,watercraft
+P937,work location,Q2221906,geographic location
+P937,work location,Q41176,building
+P937,work location,Q628858,workplace
+P937,work location,Q82794,region
+P9419,personal library at,Q43229,organization
+P942,theme music,Q55850593,music track with vocals
+P942,theme music,Q55850643,music track without lyrics
+P943,programmer,Q5,human
+P945,allegiance,Q14897293,fictional entity
+P945,allegiance,Q5,human
+P945,allegiance,Q3024240,historical country
+P945,allegiance,Q4164871,position
+P945,allegiance,Q43229,organization
+P945,allegiance,Q6256,country
+P9493,artist files at,Q43229,organization
+P9567,intended background color,Q1075,color
+P9597,type of lens,Q768575,lens
+P9600,oral history at,Q43229,organization
+P9611,district heating grid,Q278784,district heating
+P9652,personality trait of fictional character,Q1149305,disposition
+P9660,not found in,Q49848,document
+P9660,not found in,Q386724,work
+P967,guest of honor,Q5,human
+P9680,consequence of text,Q49848,document
+P9681,voted on by,Q1752346,assembly
+P9681,voted on by,Q7278,political party
+P97,noble title,Q21451536,"fictional office, position, or title"
+P97,noble title,Q3320743,title of honor
+P97,noble title,Q355567,noble title
+P9700,delta of,Q4022,river
+P9714,taxon range,Q2221906,geographic location
+P9714,taxon range,Q82794,region
+P972,catalog,Q166118,archives
+P972,catalog,Q1172284,data set
+P972,catalog,Q2352616,catalogue
+P9731,announced at,Q1656682,event
+P974,tributary,Q16338046,fictional river
+P974,tributary,Q124714,spring
+P974,tributary,Q355304,watercourse
+P9758,symbol represents,Q246672,mathematical object
+P98,editor,Q43229,organization
+P98,editor,Q5,human
+P9831,release of,Q108346082,release group
+P991,successful candidate,Q5,human
+P991,successful candidate,Q7210356,political organization
+P9926,populates category,Q4167836,Wikimedia category
+P9945,dissertation program,Q180958,faculty
+P9945,dissertation program,Q2467461,academic department
+P9971,has semantic argument,Q181175,scalar quantity
+P9971,has semantic argument,Q2151613,relative direction
+P9971,has semantic argument,Q11402,force
+P9971,has semantic argument,Q12774177,means
+P9971,has semantic argument,Q214609,material
+P9971,has semantic argument,Q23894381,actor
+P9971,has semantic argument,Q2995644,result
+P9971,has semantic argument,Q31464082,source entity
+P9971,has semantic argument,Q3885844,origin

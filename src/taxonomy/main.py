@@ -175,6 +175,11 @@ if __name__ == "__main__":
     draw_intermediate_graphs(wikc, cls2label, cleaner.mapping, "filter", INTERMEDIATE_FOLDER)
     cleaner.store_intermediate_graphs(INTERMEDIATE_FOLDER, step="filter")
 
+    # store the taxonomy before wikipedia filtering
+    with open(config.WICLEAN_TAXONOMY_BEFORE_WP_FILE, "w") as f:
+        for u, v in wikc.edges():
+            f.write(f"{v},{u}\n") # child -> parent subclassOf
+
     # store the final cleaned taxonomy
     os.makedirs(config.WICLEAN_OUTPUT_DIR, exist_ok=True)
     with open(config.WICLEAN_TAXONOMY_FILE, "w") as f:
@@ -204,10 +209,10 @@ if __name__ == "__main__":
     # store mapping: child -> parent
     cleaner.save_mapping(config.WICLEAN_MAPPING_FILE)
 
-    # # store new cls_inst_count
-    # with open(f"../results/wikc_in_llms/{llm}/cls_inst_count.txt", "w") as f:
-    #     for cls, count in cleaner.cls_inst_stats.items():
-    #         f.write(f"{cls}\t{count}\n")
+    # store new cls_inst_count
+    with open(os.path.join(config.WICLEAN_OUTPUT_DIR, "cls_inst_count.csv"), "w") as f:
+        for cls, count in cleaner.cls_inst_stats.items():
+            f.write(f"{cls}\t{count}\n") # no wd: prefix
     
     # print the top level classes
     top_level_classes = list(wikc.successors('Q35120'))
