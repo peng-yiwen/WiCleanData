@@ -9,6 +9,7 @@ import torch
 import torch.nn.functional as F
 from torch import Tensor
 from transformers import AutoTokenizer, AutoModel
+import config
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
@@ -380,111 +381,110 @@ def compute_taxonomy_robustness_sampled(
 # ──────────────────────────────────────────────
 
 if __name__ == "__main__":
-    root = 'wd:Q35120'
-    emb_path = '../../data/wikidata/'
-    emb_pkl = os.path.join(emb_path, 'wiki_labels_emb.pkl')
+
+    root = config.ROOT_QID
+    LABELS_FILE = config.LABELS_FILE
+    TAXONOMY_FILE = config.TAXONOMY_FILE
+    EMB_FILE = config.EMBEDDING_PKL_FILE
+    ROBUSTNESS_OUTPUT_FILE = config.ROBUSTNESS_OUTPUT_FILE
 
     cls2label = {}
-    with open(os.path.join('../../data', 'wiki_taxonomy_labels.tsv'), 'r') as f_label:
-        for line in f_label:
-            triple = line.strip().split('\t')
-            if len(triple) > 3:
-                cls2label[triple[0]] = triple[2][1:-1]
-
-    # first compute the wikidata taxonomy robustness (sampled – too large for full matrix)
-    wiki_path = '../../data/wikidata/'
-    dag_wiki = nx.DiGraph()
-    with open(os.path.join(wiki_path, 'wiki_taxonomy.tsv'), 'r') as taxoreader:
-        for line in taxoreader:
+    with open(LABELS_FILE, 'r') as f:
+        for line in f:
             terms = line.strip().split('\t')
-            if len(terms) > 3:
-                child, parent = terms[0], terms[2]
-                dag_wiki.add_edge(parent, child)
+            if len(terms) > 1:
+                cls2label[terms[0]] = terms[1][1:-1]
 
-    _, all_chars_wiki = extract_groups(dag_wiki)
-    print(f"\n{'='*50}")
-    print(f" Wikidata taxonomy")
-    print(f"{'='*50}")
-    print(f"  Graph: {dag_wiki.number_of_nodes()} nodes, "
-          f"{dag_wiki.number_of_edges()} edges")
-    print(f"  Leaf characteristics: {len(all_chars_wiki)}")
-
-    if os.path.exists(emb_pkl):
-        emb_wiki = load_submatrix(emb_pkl, all_chars_wiki)
-        print(f"  Loaded embeddings: {emb_wiki.shape}")
-    else:
-        raise FileNotFoundError(
-            f"Pre-computed embeddings not found at {emb_pkl}. "
-            "Run embedding generation first."
-        )
-
-    R_T_mean, R_T_std, round_scores, details_wiki = \
-        compute_taxonomy_robustness_sampled(
-            dag_wiki, emb_wiki, all_chars_wiki, cls2label,
-            s=20000, m=10, seed=42,
-        )
-    print(f"\n  Wikidata Robustness: {R_T_mean:.4f} ± {R_T_std:.4f}")
-
-    del emb_wiki, details_wiki
-
-    #########################################################
-    #               Compute Robustness for All Models        #
-    #########################################################
-
-    models = [
-        'gemma4b', 'gemma12b', 'gemma27b',
-        'qwen8b', 'qwen14b', 'qwen32b',
-        'mistral7b', 'mistral24b',
-        'mixtral8x7b', 'llama8b',
-    ]
-
-    basic_path = '../../results/wikc_in_llms/'
-    for model_name in tqdm(models, desc="Computing Robustness"):
-        graph_path = os.path.join(basic_path, model_name, 'wikc.txt')
-        if not os.path.exists(graph_path):
-            print(f"  [SKIP] {graph_path} not found.")
-            continue
-
-        dag = nx.DiGraph()
-        with open(graph_path, 'r') as f:
-            for line in f:
-                child, parent = line.strip().split('\t')
+    dag = nx.DiGraph()
+    with open(TAXONOMY_FILE, 'r') as f:
+        for line in f:
+            if line.startswith('Q'):
+                child, parent = line.strip().split(',')
                 dag.add_edge(parent, child)
 
-        print(f"\n{'='*50}")
-        print(f" Model: {model_name}")
-        print(f"{'='*50}")
-        print(f"  Graph: {dag.number_of_nodes()} nodes, {dag.number_of_edges()} edges")
+    print(f"  Graph: {dag.number_of_nodes()} nodes, {dag.number_of_edges()} edges")
+    groups, all_chars = extract_groups(dag) # all chars: all leaf nodes: list
+    print(f"  Groups: {len(groups)}, Leaf characteristics: {len(all_chars)}")
 
-        groups, all_chars = extract_groups(dag) # all chars: all leaf nodes: list
-        print(f"  Groups: {len(groups)}, Leaf characteristics: {len(all_chars)}")
+    if os.path.exists(EMB_FILE):
+        emb_sub = load_submatrix(EMB_FILE, all_chars)
+        simi_matrix = emb_sub @ emb_sub.T
+    else:
+        print(f"  Computing semantic similarity for {len(all_chars)} labels ...")
+        simi_matrix = compute_semantic_similarity(all_chars, cls2label)
 
-        if os.path.exists(emb_pkl):
-            emb_sub = load_submatrix(emb_pkl, all_chars)
-            simi_matrix = emb_sub @ emb_sub.T
-        else:
-            print(f"  Computing semantic similarity for {len(all_chars)} labels ...")
-            simi_matrix = compute_semantic_similarity(all_chars, cls2label)
+    R_T, details = compute_taxonomy_robustness(
+        groups, all_chars, simi_matrix, cls2label
+    )
+    print(f"\nOverall Taxonomy Robustness: {R_T:.4f}")
 
-        R_T, details = compute_taxonomy_robustness(
-            groups, all_chars, simi_matrix, cls2label
-        )
-        print(f"\nOverall Taxonomy Robustness: {R_T:.4f}")
+    valid_groups = {k: v for k, v in details.items()
+                    if v['robustness'] is not None}
+    sorted_groups = sorted(valid_groups.items(),
+                            key=lambda x: x[1]['robustness'])
 
-        valid_groups = {k: v for k, v in details.items()
-                        if v['robustness'] is not None}
-        sorted_groups = sorted(valid_groups.items(),
-                               key=lambda x: x[1]['robustness'])
+    print(f"\n  Groups with valid robustness: {len(valid_groups)}/{len(details)}")
+    if sorted_groups:
+        print("  Worst 3 groups:")
+        for gid, info in sorted_groups[:3]:
+            print(f"    {info['label']}: coh={info['cohesiveness']:.4f}, "
+                    f"intruders={info['intruders']}, rob={info['robustness']:.4f}")
+        print("  Best 3 groups:")
+        for gid, info in sorted_groups[-3:]:
+            coh_str = f"{info['cohesiveness']:.4f}" if info['cohesiveness'] is not None else "Single Node"
+            print(f"    {info['label']}: coh={coh_str}, "
+                    f"intruders={info['intruders']}, rob={info['robustness']:.4f}")
+    print(f"\n  Overall Taxonomy Robustness: {R_T:.4f}")
 
-        print(f"\n  Groups with valid robustness: {len(valid_groups)}/{len(details)}")
-        if sorted_groups:
-            print("  Worst 3 groups:")
-            for gid, info in sorted_groups[:3]:
-                print(f"    {info['label']}: coh={info['cohesiveness']:.4f}, "
-                      f"intruders={info['intruders']}, rob={info['robustness']:.4f}")
-            print("  Best 3 groups:")
-            for gid, info in sorted_groups[-3:]:
-                coh_str = f"{info['cohesiveness']:.4f}" if info['cohesiveness'] is not None else "Single Node"
-                print(f"    {info['label']}: coh={coh_str}, "
-                      f"intruders={info['intruders']}, rob={info['robustness']:.4f}")
-        print(f"\n  Overall Taxonomy Robustness: {R_T:.4f}")
+    with open(ROBUSTNESS_OUTPUT_FILE, 'w') as f:
+        f.write(f"Overall Taxonomy Robustness: {R_T:.4f}\n")
+        for gid, info in sorted_groups:
+            f.write(f"    {info['label']}: coh={info['cohesiveness']:.4f}, "
+                    f"intruders={info['intruders']}, rob={info['robustness']:.4f}\n")
+
+    # root = 'wd:Q35120'
+    # emb_path = '../../data/wikidata/'
+    # emb_pkl = os.path.join(emb_path, 'wiki_ori_labels_emb.pkl')
+
+    # cls2label = {}
+    # with open(os.path.join('../../data', 'wiki_taxonomy_extracted_labels.tsv'), 'r') as f_label:
+    #     for line in f_label:
+    #         triple = line.strip().split('\t')
+    #         if len(triple) > 3:
+    #             cls2label[triple[0]] = triple[2][1:-1]
+
+    # # first compute the wikidata taxonomy robustness (sampled – too large for full matrix)
+    # wiki_path = '../../data/wikidata/'
+    # dag_wiki = nx.DiGraph()
+    # with open(os.path.join(wiki_path, 'wiki_taxonomy.tsv'), 'r') as taxoreader:
+    #     for line in taxoreader:
+    #         terms = line.strip().split('\t')
+    #         if len(terms) > 3:
+    #             child, parent = terms[0], terms[2]
+    #             dag_wiki.add_edge(parent, child)
+
+    # _, all_chars_wiki = extract_groups(dag_wiki)
+    # print(f"\n{'='*50}")
+    # print(f" Wikidata taxonomy")
+    # print(f"{'='*50}")
+    # print(f"  Graph: {dag_wiki.number_of_nodes()} nodes, "
+    #       f"{dag_wiki.number_of_edges()} edges")
+    # print(f"  Leaf characteristics: {len(all_chars_wiki)}")
+
+    # if os.path.exists(emb_pkl):
+    #     emb_wiki = load_submatrix(emb_pkl, all_chars_wiki)
+    #     print(f"  Loaded embeddings: {emb_wiki.shape}")
+    # else:
+    #     raise FileNotFoundError(
+    #         f"Pre-computed embeddings not found at {emb_pkl}. "
+    #         "Run embedding generation first."
+    #     )
+
+    # R_T_mean, R_T_std, round_scores, details_wiki = \
+    #     compute_taxonomy_robustness_sampled(
+    #         dag_wiki, emb_wiki, all_chars_wiki, cls2label,
+    #         s=20000, m=10, seed=42,
+    #     )
+    # print(f"\n  Wikidata Robustness: {R_T_mean:.4f} ± {R_T_std:.4f}")
+
+    # del emb_wiki, details_wiki

@@ -13,7 +13,6 @@ C_GED = C1 + C2 + C3 + C4
   C4: edge insertions for new nodes = |A' - A'_sub_expanded|  (L1 norm)
 """
 
-from ast import Num
 import numpy as np
 from scipy import sparse
 from typing import Dict, List, Tuple, Union

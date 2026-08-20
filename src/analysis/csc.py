@@ -308,15 +308,17 @@ def compute_csc_sampled(dag, root, cls2label, k=20000, m=50,
 # ──────────────────────────────────────────────
 
 if __name__ == "__main__":
-    root = 'wd:Q35120'
+    root = 'Q35120'
+
+    DATA_PATH = '../../data/wikidata/'
 
     cls2label = {} # qid: label
-    with open(os.path.join('../../data', 'wiki_taxonomy_labels.tsv'), 'r') as f_label:
+    with open(os.path.join(DATA_PATH, 'wiki_taxonomy_extracted_labels.tsv'), 'r') as f_label:
         for line in f_label:
             # wd:Q96196524 rdfs:label "current entity" .
-            triple = line.strip().split('\t')
-            if len(triple) > 3:
-                cls2label[triple[0]] = triple[2][1:-1]
+            terms = line.strip().split('\t')
+            if len(terms) > 1:
+                cls2label[terms[0]] = terms[1][1:-1]
 
     # # Wikidata: Use sampling
     # wiki_path = '../../data/wikidata/'
@@ -330,9 +332,6 @@ if __name__ == "__main__":
     # # emb_path = '../../results/wikc_in_llms/wikidata/Version-2026'
     # tau_mean, tau_std, tau_list = compute_csc_sampled(dag, root, cls2label, k=20000, m=50,
     #                                                   model_name='Lihuchen/pearl_small', seed=42, emb_path=wiki_path)
-
-
-
 
     models = [
         'gemma4b', 'gemma12b', 'gemma27b',
