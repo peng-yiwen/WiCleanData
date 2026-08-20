@@ -8,7 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import config
 
-LOG_PATH = config.INST_TYPES_FOLDER + config.INST_META_MESSAGES_FILE
+LOG_PATH = config.INST_TYPES_FOLDER / config.INST_META_MESSAGES_FILE
 OUTPUT_PATH = config.NO_LABEL_INSTANCES_FILE
 
 _INSTANCE_PROP = "wdt:P31"

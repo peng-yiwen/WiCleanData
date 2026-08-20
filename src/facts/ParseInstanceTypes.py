@@ -23,7 +23,7 @@ PropertyToRemove = {
 }
 
 # Paths (defined in config.py)
-DATA_PATH          = config.DATA_PATH
+DATA_PATH          = config.DATA_DIR
 WIKIDATA_FILE      = config.WIKIDATA_FILE
 FOLDER             = config.INST_TYPES_FOLDER
 META_MESSAGES_FILE = config.INST_META_MESSAGES_FILE
@@ -241,7 +241,7 @@ class treatWikidataEntity():
 
         # load all classes from wiclean taxonomy (after Wikipedia filtering)
         self.wikipediaClasses = set()
-        with open(config.TAXONOMY_FILE, "r") as f:
+        with open(config.WICLEAN_TAXONOMY_FILE, "r") as f:
             for line in f:
                 line = line.strip()
                 if line:
@@ -268,7 +268,7 @@ class treatWikidataEntity():
 
         # We have to open the file here and not in init() to avoid pickling problems
         if not self.writer:
-            self.writer=TsvUtils.TsvFileWriter(FOLDER+"wiki_facts"+(str(self.number).rjust(4,'0'))+".tmp")
+            self.writer=TsvUtils.TsvFileWriter(str(FOLDER / f"wiki_facts{str(self.number).rjust(4,'0')}.tmp"))
             self.writer.__enter__()
         
         # Only consider entities with wikidataType
@@ -331,10 +331,10 @@ if __name__ == '__main__':
         NtUtils.visitWikidata(WIKIDATA_FILE, treatWikidataEntity, numThreads=65) # contain wd: prefix
         print("  Collecting results...")
         count=0
-        tempFiles=list(glob.glob(FOLDER+"wiki_facts*.tmp"))
+        tempFiles=sorted(glob.glob(str(FOLDER / "wiki_facts*.tmp")))
         tempFiles.sort()
-        with open(FOLDER+META_MESSAGES_FILE, "wb") as logwriter:
-            with open(FOLDER+FACTS_FILE, "wb") as writer:
+        with open(FOLDER / META_MESSAGES_FILE, "wb") as logwriter:
+            with open(FOLDER / FACTS_FILE, "wb") as writer:
                 for file in tempFiles:
                     print("    Reading",file)
                     with open(file, "rb") as reader:
