@@ -18,7 +18,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 DATA_DIR = Path(os.environ.get("WICLEAN_DATA_DIR", PROJECT_ROOT / "data"))
 WIKIDATA_DIR = DATA_DIR / "wikidata"
 WICLEAN_DIR = DATA_DIR / "wicleanData"
-WIKIPEDIA_DIR = WIKIDATA_DIR / "wikipedia"
+WIKIPEDIA_DIR = DATA_DIR / "wikipedia"
 ROOT_QID = "Q35120"
 
 
