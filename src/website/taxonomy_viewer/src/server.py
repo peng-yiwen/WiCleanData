@@ -21,7 +21,7 @@ _model_cache = {}   # model -> (adjacency, names, mapping, label_key)
 
 
 def _get_labels(model):
-    """Return cls2label dict. 'original' uses wikidatalabels.txt; others use wikclabels.txt."""
+    """Return cls2label dict. 'original' uses wikidatalabels.txt; others use wicleanlabels.txt."""
     label_key = ORIGINAL_MODEL if model == ORIGINAL_MODEL else "_default"
     if label_key not in _label_cache:
         if label_key == ORIGINAL_MODEL:

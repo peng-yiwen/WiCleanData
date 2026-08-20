@@ -20,7 +20,7 @@ def make_url(qid):
     return f"https://www.wikidata.org/wiki/{qid}"
 
 
-def load_label(label_path="wikclabels_2026.txt", data_dir=None):
+def load_label(label_path='wicleanLabels.txt', data_dir=None):
     if data_dir:
         label_path = os.path.join(data_dir, label_path)
     cls2label = {}
@@ -36,7 +36,7 @@ def load_label(label_path="wikclabels_2026.txt", data_dir=None):
 
 
 def load_taxonomy(model, cls2label, data_dir=None):
-    filepath = f'{model}_wikc.txt'
+    filepath = f'{model}_taxonomy.txt'
     if data_dir:
         filepath = os.path.join(data_dir, filepath)
     if not os.path.exists(filepath):
@@ -210,7 +210,7 @@ if __name__ == "__main__":
         cls2label = load_original_label()
         adjacency, names = load_original_taxonomy()
     else:
-        cls2label = load_label("wikclabels_2026.txt")
+        cls2label = load_label("wicleanLabels.txt")
         adjacency, names = load_taxonomy(model, cls2label)
         mapping = load_mapping(model)
     sub_adjacency, sub_names, resolved = get_paths_root_to_target(adjacency, names, target, mapping)

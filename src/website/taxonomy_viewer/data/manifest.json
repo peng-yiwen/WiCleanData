@@ -1,9 +1,6 @@
 {
   "models": [
     "wikidata_2026",
-    "wiki2026_extract",
-    "wiki2026_extract_reduced",
-    "wiki2024_extract",
-    "wicleanTaxon"
+    "wicleanData"
   ]
 }

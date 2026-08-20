@@ -235,16 +235,37 @@ def select_lcas(lca_reults, G_clean, root=None):
 
         for lca, (covered_types, dist) in candidates.items():
             effective_covered = covered_types & rest_types
-            if not effective_covered:
+            # if not effective_covered:
+            #     continue
+
+            # CHANGED: 08-20-2026
+            if len(effective_covered) <= 1: # skip if the LCA covers only one rest type
                 continue
             stats = evaluate_chunk(lca, effective_covered, G_clean, root=r)
             if stats['avg_distance'] <= 2 and stats['ic_difference'] >= -0.1:
                 key = _rank_key(stats)
-                if best_key is None or key > best_key:
+                # CHANGED: 08-20-2026
+                if best_key is None:
                     best_key = key
                     best_lca = lca
                     best_stats = stats
                     best_covered = effective_covered
+                    continue
+                # best coverage
+                if len(best_covered) < len(effective_covered):
+                    best_key = key
+                    best_lca = lca
+                    best_stats = stats
+                    best_covered = effective_covered
+                    continue
+                # best metrics
+                if len(best_covered) == len(effective_covered) and key > best_key:
+                    best_key = key
+                    best_lca = lca
+                    best_stats = stats
+                    best_covered = effective_covered
+                    continue
+                
 
         if best_lca is None:
             break
@@ -252,6 +273,20 @@ def select_lcas(lca_reults, G_clean, root=None):
         _, dist = candidates.pop(best_lca)
         lca_selected[best_lca] = (best_covered, dist, best_stats)
         rest_types -= best_covered
+    
+    # CHANGED: 08-19-2026: filter lcas that are already covered by other lcas
+    lcas = list(lca_selected.keys())
+    for i in range(len(lcas)):
+        if lcas[i] not in lca_selected:
+            continue
+        for j in range(i+1, len(lcas)):
+            if lcas[j] not in lca_selected:
+                continue
+            if nx.has_path(G_clean, lcas[i], lcas[j]):
+                lca_selected.pop(lcas[j])
+            if nx.has_path(G_clean, lcas[j], lcas[i]):
+                lca_selected.pop(lcas[i])
+                break
 
     return lca_selected
 
@@ -685,7 +720,7 @@ def compute_relation_analysis(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Metrics for chunked types; taxonomy from {llm}_wikc.txt / {llm}_mapping.txt.",
+        description="Metrics for chunked types; taxonomy from {llm}_taxonomy.txt / {llm}_mapping.txt.",
     )
     parser.add_argument(
         "--relation",
@@ -694,13 +729,13 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--llm",
-        default="mistral7b",
-        help="Base name for {llm}_wikc.txt and {llm}_mapping.txt (comma-separated Q-ids).",
+        default="wiclean", # mistral7b
+        help="Base name for {llm}_taxonomy.txt and {llm}_mapping.txt (comma-separated Q-ids).",
     )
     parser.add_argument(
         "--data-dir",
         default=None,
-        help="Directory containing {llm}_wikc.txt and {llm}_mapping.txt (default: directory of metrics.py).",
+        help="Directory containing {llm}_taxonomy.txt and {llm}_mapping.txt (default: directory of metrics.py).",
     )
     args = parser.parse_args()
 

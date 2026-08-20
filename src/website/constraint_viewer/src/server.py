@@ -5,7 +5,7 @@ Constraint Viewer — serve static assets and run relation summaries.
   GET  /api/summary?model=&relation=  → metrics.compute_relation_analysis JSON
   POST /api/labels           → { "labels": { "Q5": "human", ... } } body: { "qids": ["Q5", ...] }
 
-Taxonomy files `{model}_wikc.txt` and `{model}_mapping.txt` are discovered
+Taxonomy files `{model}_taxonomy.txt` and `{model}_mapping.txt` are discovered
 from `constraint_viewer/data` only.
 
 Optional model allowlist lives in `src/config.py` as `MODEL_ALLOWLIST`.
@@ -38,8 +38,8 @@ def _search_roots() -> list[Path]:
 def list_models() -> list[str]:
     names: set[str] = set()
     for root in _search_roots():
-        for path in root.glob("*_wikc.txt"):
-            stem = path.name[: -len("_wikc.txt")]
+        for path in root.glob("*_taxonomy.txt"):
+            stem = path.name[: -len("_taxonomy.txt")]
             if (root / f"{stem}_mapping.txt").is_file():
                 names.add(stem)
     allow = _model_name_allowlist()
@@ -50,13 +50,13 @@ def list_models() -> list[str]:
 
 def resolve_model_paths(model: str) -> tuple[Path, Path]:
     for root in _search_roots():
-        wikc = root / f"{model}_wikc.txt"
+        wikc = root / f"{model}_taxonomy.txt"
         mapping = root / f"{model}_mapping.txt"
         if wikc.is_file() and mapping.is_file():
             return wikc, mapping
     hint = ", ".join(str(r) for r in _search_roots())
     raise FileNotFoundError(
-        f"Model {model!r} not found (need {model}_wikc.txt + {model}_mapping.txt in {hint})"
+        f"Model {model!r} not found (need {model}_taxonomy.txt + {model}_mapping.txt in {hint})"
     )
 
 

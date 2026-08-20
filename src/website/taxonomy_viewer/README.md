@@ -60,7 +60,7 @@ taxonomy_viewer/
 - **edges** — array of `{ child, parent }` pairs representing `rdfs:subClassOf` relationships.
 - **query** (optional) — the class being queried. `directSuperclasses` lists the URIs of its immediate parent classes.
 
-A sample file is provided at `taxonomy_example.json`.
+
 
 ## Adding Data to the Sample Library
 
@@ -75,7 +75,6 @@ All main paths are centralized in `src/config.py`, including:
 - `assets/` path
 - `data/` path
 - `data/cache/` path
-- `data/OLD/` path
 - `data/manifest.json` path
 
 ## Node Colors

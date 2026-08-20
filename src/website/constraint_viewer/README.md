@@ -25,5 +25,5 @@ Then open:
 
 - By default, models are discovered only from `data/`.
 - Use `src/config.py` → `MODEL_ALLOWLIST` for an explicit model allowlist.
-  - Example: `MODEL_ALLOWLIST = ["mistral7b"]`
+  - Example: `MODEL_ALLOWLIST = ["wiclean"]`
   - Set `MODEL_ALLOWLIST = None` (or `[]`) to allow all discovered models.

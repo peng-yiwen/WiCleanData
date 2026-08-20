@@ -48,23 +48,9 @@ def load_original_taxonomy(path: str) -> nx.DiGraph:
     return G
 
 
-# def load_clean_taxonomy(path: str):
-#     G = nx.DiGraph()
-#     with open(path) as f:
-#         for line in f:
-#             line = line.strip()
-#             if not line:
-#                 continue
-#             parts = line.split("\t")
-#             if len(parts) != 2:
-#                 continue
-#             child, parent = normalize_qid(parts[0]), normalize_qid(parts[1])
-#             G.add_edge(parent, child)
-#     return G
-
 
 def load_comma_taxonomy(path: str) -> nx.DiGraph:
-    """Load taxonomy from ``{llm}_wikc.txt``: comma-separated child,parent (Q-ids), top-down DAG."""
+    """Load taxonomy from ``{llm}_taxonomy.txt``: comma-separated child,parent (Q-ids), top-down DAG."""
     G = nx.DiGraph()
     with open(path) as f:
         for line in f:
@@ -95,19 +81,6 @@ def load_comma_mapping(path: str) -> dict[str, str]:
     return mapping
 
 
-# def load_constraint_types(path: str):
-#     """Return list of (qid, label) from a subject/value constraints CSV."""
-#     types = []
-#     with open(path) as f:
-#         reader = csv.DictReader(f)
-#         for row in reader:
-#             if "subject_type" in row and "subject_type_label" in row:
-#                 types.append((normalize_qid(row["subject_type"]), row["subject_type_label"]))
-#             elif "value_type" in row and "value_type_label" in row:
-#                 types.append((normalize_qid(row["value_type"]), row["value_type_label"]))
-#             else:
-#                 raise ValueError(f"Invalid CSV file: {path}")
-#     return types
 
 
 def _normalize_property_id(property_id: str) -> str:
@@ -147,7 +120,7 @@ def load_relation_constraint_types(
         for row in reader:
             if _normalize_property_id(row.get("property", "")) != prop:
                 continue
-            subjects.append((normalize_qid(row["subject_type"]), row["subject_type_label"]))
+            subjects.append((normalize_qid(row["class"]), row["classLabel"]))
 
     objects: list[tuple[str, str]] = []
     with open(value_csv) as f:
@@ -155,7 +128,7 @@ def load_relation_constraint_types(
         for row in reader:
             if _normalize_property_id(row.get("property", "")) != prop:
                 continue
-            objects.append((normalize_qid(row["value_type"]), row["value_type_label"]))
+            objects.append((normalize_qid(row["class"]), row["classLabel"]))
 
     return _dedupe_rows(subjects), _dedupe_rows(objects)
 
@@ -169,22 +142,11 @@ def load_property_label(subject_csv: str, value_csv: str, property_id: str) -> s
             for row in reader:
                 if _normalize_property_id(row.get("property", "")) != prop:
                     continue
-                lab = (row.get("property_label") or "").strip()
+                lab = (row.get("propertyLabel") or "").strip()
                 if lab:
                     return lab
     return None
 
-
-# def load_mapping(path: str):
-#     mapping = dict()
-#     with open(path) as f:
-#         for line in f:
-#             line = line.strip()
-#             if not line:
-#                 continue
-#             qid, parent = line.split("\t")
-#             mapping[normalize_qid(qid)] = normalize_qid(parent)
-#     return mapping
 
 
 # ---------------------------------------------------------------------------
@@ -546,9 +508,9 @@ def _default_rel_constraint_paths() -> tuple[str, str]:
 
 
 def resolve_llm_taxonomy_paths(llm: str, data_dir: Path | None) -> tuple[Path, Path]:
-    """``{llm}_wikc.txt`` and ``{llm}_mapping.txt`` under *data_dir* (default: data/)."""
+    """``{llm}_taxonomy.txt`` and ``{llm}_mapping.txt`` under *data_dir* (default: data/)."""
     base = data_dir if data_dir is not None else DATA_DIR
-    return base / f"{llm}_wikc.txt", base / f"{llm}_mapping.txt"
+    return base / f"{llm}_taxonomy.txt", base / f"{llm}_mapping.txt"
 
 
 def run_relation_side(
@@ -593,7 +555,7 @@ def run_relation_side(
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Cluster relation type constraints; taxonomy from {llm}_wikc.txt / {llm}_mapping.txt.",
+        description="Cluster relation type constraints; taxonomy from {llm}_taxonomu.txt / {llm}_mapping.txt.",
     )
     parser.add_argument(
         "--relation",
@@ -603,12 +565,12 @@ def main():
     parser.add_argument(
         "--llm",
         default="mistral7b",
-        help="Base name for {llm}_wikc.txt and {llm}_mapping.txt (comma-separated Q-ids, same as taxonomy_viewer).",
+        help="Base name for {llm}_taxonomy.txt and {llm}_mapping.txt (comma-separated Q-ids, same as taxonomy_viewer).",
     )
     parser.add_argument(
         "--data-dir",
         default=None,
-        help="Directory containing {llm}_wikc.txt and {llm}_mapping.txt (default: directory of chunk.py).",
+        help="Directory containing {llm}_taxonomy.txt and {llm}_mapping.txt (default: directory of chunk.py).",
     )
     args = parser.parse_args()
 
