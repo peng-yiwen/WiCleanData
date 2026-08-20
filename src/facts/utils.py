@@ -238,9 +238,9 @@ def count_subj(line):
 
 
 def measure(func, *args):
-    time_start = time.time()
+    time_start = time()
     result = func(*args)
-    time_end = time.time()
+    time_end = time()
     print(f'{func.__name__}: {time_end - time_start}')
     return result
 

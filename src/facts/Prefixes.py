@@ -87,8 +87,6 @@ rdfsClass='rdfs:Class'
 
 rdfsSubClassOf = "rdfs:subClassOf"
 
-rdfsSubclassOf = "rdfs:subClassOf"
-
 ysReason = "ys:excludedFor"
 
 wicReason = "wic:excludedFor"

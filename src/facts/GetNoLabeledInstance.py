@@ -26,8 +26,7 @@ def _subject_from_no_label_meta_line(line: str) -> str | None:
 
 def extract_no_label_instances(
     log_path: str = LOG_PATH,
-    output_path: str = OUTPUT_PATH,
-) -> tuple[int, set[str]]:
+    output_path: str = OUTPUT_PATH):
     """
     Collect instance subjects excluded with reason ``instance_no_label``.
 

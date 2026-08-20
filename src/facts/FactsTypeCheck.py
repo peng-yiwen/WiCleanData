@@ -4,6 +4,7 @@ import Prefixes
 import NtUtils
 from collections import defaultdict
 import config
+import os
 
 # Paths (defined in config.py)
 SUBJ_CSV           = config.TYPECHECK_SUBJ_CSV
@@ -334,8 +335,8 @@ if __name__ == "__main__":
             instDirectTypes[inst].add(cls)
         
         # initialize the writer
-        writerMetaMessages = TsvUtils.TsvFileWriter(OUTPUT_FOLDER+META_MESSAGES_FILE)
-        writerFacts = TsvUtils.TsvFileWriter(OUTPUT_FOLDER+FACTS_FILE)
+        writerMetaMessages = TsvUtils.TsvFileWriter(os.path.join(OUTPUT_FOLDER, META_MESSAGES_FILE))
+        writerFacts = TsvUtils.TsvFileWriter(os.path.join(OUTPUT_FOLDER, FACTS_FILE))
         writerFacts.__enter__()
         writerMetaMessages.__enter__()
         n_facts_with_constraints = 0
@@ -367,8 +368,6 @@ if __name__ == "__main__":
         writerFacts.__exit__()
         print(" done")
         print(f"Number of facts with constraints: {n_facts_with_constraints}")
-
-
 
 
     # print(f"Loaded {len(constraints)} relation constraints.")

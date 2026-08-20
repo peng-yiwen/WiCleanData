@@ -214,6 +214,12 @@ if __name__ == "__main__":
         for cls, count in cleaner.cls_inst_stats.items():
             f.write(f"{cls}\t{count}\n") # no wd: prefix
     
+    # store new labels
+    with open(config.WICLEAN_LABELS_FILE, "w") as f:
+        for node in wikc.nodes():
+            node.removeprefix("wd:")
+            f.write(f"{node}\t{cls2label[node]}\n")
+    
     # print the top level classes
     top_level_classes = list(wikc.successors('Q35120'))
     print(f"Number of top level classes: {len(top_level_classes)}")

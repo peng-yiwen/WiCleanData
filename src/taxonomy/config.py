@@ -35,6 +35,7 @@ WICLEAN_OUTPUT_DIR = os.path.join(DATA_DIR, "wicleanData")
 WICLEAN_TAXONOMY_FILE = os.path.join(WICLEAN_OUTPUT_DIR, "wicleanTaxonomy.txt")
 WICLEAN_TAXONOMY_BEFORE_WP_FILE = os.path.join(WICLEAN_OUTPUT_DIR, "wicleanTaxonomy_before_wikipedia_filtering.txt")
 WICLEAN_MAPPING_FILE = os.path.join(WICLEAN_OUTPUT_DIR, "wiclean_mapping.txt")
+WICLEAN_LABELS_FILE = os.path.join(WICLEAN_OUTPUT_DIR, "wicleanLabels.txt")
 
 # LLM prediction file patterns (relative filenames within LLM_OUTPUT_DIR)
 MAJORITY_PREDICTIONS_FILE = "llm_majority_predictions.txt"

@@ -11,11 +11,8 @@ import glob
 import TsvUtils
 import NtUtils
 import os
-from collections import defaultdict
-# import utils
-import pandas as pd
-from tqdm import tqdm
 import config
+import csv
 
 # Remove scholarly articles
 PropertyToRemove = {
@@ -56,7 +53,6 @@ def isValidInstance(entityFacts, classes, writerMetaMessages):
             writerMetaMessages.write("<<", mainEntity, Prefixes.wikidataType, t[2], ">>", Prefixes.wicReason, "instance_no_label", ".")
         return False
 
-    # Yiwen: Maybe delete this check
     # Must have a description
     # if not entityFacts.triplesWithPredicate(Prefixes.schemaDescription):
     #     for t in entityFacts.triplesWithPredicate(Prefixes.wikidataType):
@@ -142,7 +138,7 @@ def retypeInstancesToClean(entityFacts, wicleanmap, wicleanTaxonomyUp, wikipedia
         find_ancestor = False
         for ancestor_, depth in closest_ancestors:
             # skip root class
-            if ancestor_ == 'wd:Q35120': 
+            if ancestor_ == 'wd:Q35120':  # root
                 continue
             if depth > min_depth:
                 break
@@ -225,11 +221,11 @@ class treatWikidataEntity():
         # load valid classes after extraction
         self.isClasses = set()
         with open(config.VALID_CLASSES_FILE, "r") as f:
-            for line in f:
-                line = line.strip()
-                if line:
-                    self.isClasses.add("wd:" + line)
-
+            reader = csv.reader(f)
+            for row in reader:
+                if row[0].startswith("http://www.wikidata.org/entity/"):
+                    self.isClasses.add('wd:' + row[0].split("/")[-1]) # it is the wd:QID
+        
         # load wiclean taxonomy (before Wikipedia filtering)
         self.wicleanTaxonomyUp = dict()
         with open(config.TAXONOMY_BEFORE_WP_FILE, "r") as f:
@@ -239,9 +235,9 @@ class treatWikidataEntity():
                     parts = line.split(",")
                     if len(parts) == 2:
                         child, parent = parts[0], parts[1]
-                        if ("wd:" + child) not in self.wicleanTaxonomyUp:
-                            self.wicleanTaxonomyUp["wd:" + child] = set()
-                        self.wicleanTaxonomyUp["wd:" + child].add("wd:" + parent)
+                        if ('wd:' + child) not in self.wicleanTaxonomyUp:
+                            self.wicleanTaxonomyUp['wd:' + child] = set()
+                        self.wicleanTaxonomyUp['wd:' + child].add('wd:' + parent)
 
         # load all classes from wiclean taxonomy (after Wikipedia filtering)
         self.wikipediaClasses = set()
@@ -250,7 +246,7 @@ class treatWikidataEntity():
                 line = line.strip()
                 if line:
                     for part in line.split(","):
-                        self.wikipediaClasses.add("wd:" + part)
+                        self.wikipediaClasses.add('wd:' + part)
 
         # load wiclean mapping (original -> current class)
         self.wicleanMap = {}
@@ -260,7 +256,7 @@ class treatWikidataEntity():
                 if line:
                     parts = line.split(",")
                     if len(parts) == 2:
-                        self.wicleanMap["wd:" + parts[0]] = "wd:" + parts[1]
+                        self.wicleanMap['wd:' + parts[0]] = 'wd:' + parts[1]
         
         root = 'wd:Q35120' # entity
         self.wicleanTaxonomyUp[root] = set()
@@ -332,7 +328,7 @@ if __name__ == '__main__':
                                 from https://dumps.wikimedia.org/wikidatawiki/entities/ and place it in the folder 'data/wikidata/' and also decompress it.")
 
     with TsvUtils.Timer("Extracting Wikidata Instance Types"):
-        NtUtils.visitWikidata(WIKIDATA_FILE, treatWikidataEntity, numThreads=65)
+        NtUtils.visitWikidata(WIKIDATA_FILE, treatWikidataEntity, numThreads=65) # contain wd: prefix
         print("  Collecting results...")
         count=0
         tempFiles=list(glob.glob(FOLDER+"wiki_facts*.tmp"))

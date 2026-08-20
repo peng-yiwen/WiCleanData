@@ -6,17 +6,14 @@ Original source: https://github.com/yago-naga/yago-4.5/blob/main/03-make-facts.p
 License: CC-BY 4.0 International License
 '''
 
-from pandas.io.parsers.base_parser import parsers
 import Prefixes
 import glob
 import TsvUtils
 import NtUtils
 import os
-from collections import defaultdict
-import utils
-import pandas as pd
 from typing import Optional
 import config
+import csv
 
 # Remove scholarly articles
 PropertyToRemove = {
@@ -41,8 +38,10 @@ FACTS_FILE         = config.FACTS_FILE
 # Yiwen: later on .... in step 3: type check
 identifierRelations = set()
 with open(config.IDENTIFIERS_FILE, "r") as f:
-    for line in f:
-        identifierRelations.add(line.strip())
+    reader = csv.reader(f)
+    for row in reader:
+        if row[0].startswith("http://www.wikidata.org/entity/"):
+            identifierRelations.add('wdt:' + row[0].split("/")[-1]) # it is the wdt:PID
 
 # load non-labeled entities
 nonLabeledEntities = set()
@@ -137,8 +136,9 @@ def removeNonLabeledFacts(entityFacts, writerMetaMessages):
         s, p, o = t
         if s in nonLabeledEntities or o in nonLabeledEntities:
             ToRemove.append(t)
-    for t in ToRemove:
-        entityFacts.remove(t)
+    for t_ in ToRemove:
+        entityFacts.remove(t_)
+        s, p, o = t_
         writerMetaMessages.write("<<", s, p, o, ">>", Prefixes.wicReason, "non_labeled_subject_or_object", ".")
 
 
@@ -175,8 +175,12 @@ class treatWikidataEntity():
         self.number=i
 
         # load scholarly article classes and their descendants
+        self.scholarlyArticleClasses = set()
         with open(config.SCHOLARLY_ARTICLE_CLASSES_FILE, "r") as f:
-            self.scholarlyArticleClasses = {"wd:" + line.strip() for line in f if line.strip()}
+            reader = csv.reader(f)
+            for row in reader:
+                if row[0].startswith("http://www.wikidata.org/entity/"):
+                    self.scholarlyArticleClasses.add('wd:' + row[0].split("/")[-1]) # it is the wd:QID
 
         print("    Done initializing Wikidata reader",i+1, flush=True)
         self.writer=None
